@@ -1,48 +1,25 @@
 body {
     background: rgba(255, 255, 255, 0.5);
+    font-family: montserrat;
   }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .form-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  nav {
-    background-color: #cc2020; /* Green */
-    color: white;
-    padding: 16px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  nav li {
-    float: left;
-  }
-  
-  nav li a {
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  nav li a:hover {
-    background-color: rgb(177, 94, 94);
-  }
-  
+.logo{
+  padding-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.set{
+  float: none;
+  position: absolute;
+  left: 27%;
+}
+.login-button{
+  padding-left: 180px;
+}
+.font-color{
+  color: white;
+  font-size: 150%;
+}
+.navbar-nav > li{
+  padding-left:10px;
+  padding-right:10px; 
+}
