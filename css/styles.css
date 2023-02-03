@@ -31,8 +31,7 @@ body {
 .form-control{
   width: 500px;
 }
-.job-card{
-  border: 1px solid black; 
+.job-card{ 
   height: 400px;
 }
 .job-img{
@@ -44,3 +43,37 @@ body {
   margin-top: 10px;
 }
 
+.footer{
+  background-color: #800;
+}
+
+.footer-toc{
+  font-size: 25px;
+  color: aliceblue;
+  margin-bottom: 0px;
+}
+
+.border-on{
+  border: 1px solid black;
+}
+
+.footer a{
+  text-decoration: none;
+  color: aliceblue;
+}
+.footer a:hover{
+  text-decoration: none;
+  color: rgb(234, 231, 23);
+}
+
+.footer-margin{
+  margin-left: 20px;
+}
+.footer-two{
+  margin-top: 40px;
+}
+
+.footer-cpw{
+  font-size: 10px;
+  line-height: 0.1;
+}
