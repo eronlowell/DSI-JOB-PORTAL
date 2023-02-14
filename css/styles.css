@@ -77,3 +77,15 @@ body {
   font-size: 10px;
   line-height: 0.1;
 }
+
+.sidebar {
+  height: 100%;
+  right: 0;
+  position: fixed;
+  text-decoration: none;
+
+}
+ .frost{
+  backdrop-filter: blur(10px);
+ }
+
