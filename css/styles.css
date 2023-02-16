@@ -83,8 +83,20 @@ body {
   right: 0;
   position: fixed;
   text-decoration: none;
-
 }
+.stud-btn{
+  background-color: #800;
+}
+.stud-btn:hover{
+  background-color: rgb(160, 25, 25);
+}
+.emp-btn{
+  background-color: #0d6efd;
+}
+.emp-btn:hover{
+  background-color: rgb(109, 162, 221);
+}
+
  .frost{
   backdrop-filter: blur(10px);
  }
