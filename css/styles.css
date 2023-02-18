@@ -45,6 +45,7 @@ body {
 
 .footer{
   background-color: #800;
+  bottom: 0;
 }
 
 .footer-toc{
@@ -89,12 +90,6 @@ body {
 }
 .stud-btn:hover{
   background-color: rgb(160, 25, 25);
-}
-.emp-btn{
-  background-color: #0d6efd;
-}
-.emp-btn:hover{
-  background-color: rgb(109, 162, 221);
 }
 
  .frost{
