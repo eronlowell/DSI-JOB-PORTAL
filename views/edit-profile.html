@@ -70,26 +70,48 @@
         </div>
 
         <form>
-            <div class="row">
-                <label for="">Name:</label>
-                <div class="col-12 mb-2">
-                    
+            <div class="row mb-3">
+                <label for="" class="mb-2">Name:</label>
+                <div class="col-auto ">
+
                     <input class="form-control" type="text" placeholder="First Name">
                 </div>
-                <div class="col-12 mb-2">
+                <div class="col-auto">
                     <input class="form-control" type="text" placeholder="Middle Name">
                 </div>
-                <div class="col-12 mb-2">
+                <div class="col-auto">
                     <input class="form-control" type="text" placeholder="Last Name">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <label for="">Email:</label><br>
-                    <input class="form-control" type="text" placeholder="Email">
-                    <label for="">Contact Number:</label><br>
-                    <input class="form-control" type="text" placeholder="Contact Number">
+                    <label for="" class="mb-2">Email:</label><br>
+                    <input class="form-control mb-3" type="text" placeholder="Email">
+                    <label for="" class="mb-2">Contact Number:</label><br>
+                    <input class="form-control mb-3" type="text" placeholder="Contact Number">
+                    <label for="" class="mb-2">Birthdate:</label><br>
+                    <select name="day" id="day"></select>
+                    <select name="month" id="month"></select>
+                    <select name="year" id="year" class="mb-3"></select><br>
+                    <label for="" class="mb-2">Sex:</label><br>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1"
+                            checked>Male
+                        <label class="form-check-label" for="radio1"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Female
+                        <label class="form-check-label" for="radio2"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Prefer
+                        not to say
+                        <label class="form-check-label" for="radio3"></label>
+                    </div>
+                    <label for="" class="mb-2 mt-3">Address:</label><br>
+                    <input class="form-control mb-3" type="text" placeholder="Address">
+
                 </div>
                 <div class=" col-6">
 
@@ -149,6 +171,7 @@
         </div>
 
     </div>
+    <script src="../scripts/datepicker.js"></script>
 </body>
 
 </html>
