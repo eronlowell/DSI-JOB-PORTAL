@@ -1,3 +1,9 @@
+<?php
+    $conn = new mysqli("localhost", "root", "", "jobpost_db");
+    $sql = "SELECT * FROM jobpost";
+    $all_jobs = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,6 +76,11 @@
     </div>
   </div>
 
+  <?php
+    while($row = mysqli_fetch_assoc($all_jobs)){
+
+  ?>
+
   <div class="container">
     <div class="row">
       <div class="col-4 job-card">
@@ -92,16 +103,13 @@
                   </div>
                 </div>
                 <div class="row mt-1">
+
                   <div class="col-12 text-center">
-                    <p class="job-name">Job Info</p>
-                  </div>
-                  <div class="col-12">
-                    <p>
-                      dolor morbi non arcu risus quis varius quam quisque id diam vel quam elementum pulvinar etiam non
-                      quam
-                      lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit
-                      duis tristique sollicitudin nibh sit amet commodo nulla facilisi
-                    </p>
+                    <p class="job-name"> <?php echo $row["job_title"]; ?> </p>
+                    <p class="skills"> <b> Skills Required: </b> <?php echo $row["skills"]; ?> </p>
+                    <p class="job_type"> <b> Job Type: </b> <?php echo $row["job_type"]; ?> </p>
+                    <p class="salary"> <b> Salary: </b> <?php echo $row["salary"]; ?> </p>
+                    <p class="positions"> <b> Positions Offered: </b> <?php echo $row["positions"]; ?> </p>
                   </div>
                 </div>
                 
@@ -111,61 +119,20 @@
           <div class="row mt-1 border-on">
             <div class="col text-center">
               <a href="" >Apply Now</a>
-              
             </div>
-          </div>
+          </div> 
         </div>
-      </div>
-
-      <div class="col-4 job-card">
-        <div class="container-fluid">
-          <div class="row border-on">
-            <div class="col-12">
-              <div class="container mt-3">
-                <div class="row">
-                  <div class="col-6 job-img">
-                    <img src="" alt="img">
-                  </div>
-                  <div class="col-2">
-                    <i class="bi bi-hand-thumbs-up"></i>
-                  </div>
-                  <div class="col-2">
-                    <i class="bi bi-people"></i>
-                  </div>
-                  <div class="col-2">
-                    <i class="bi bi-share"></i>
-                  </div>
-                </div>
-                <div class="row mt-1">
-                  <div class="col-12 text-center">
-                    <p class="job-name">Job Info</p>
-                  </div>
-                  <div class="col-12">
-                    <p>
-                      dolor morbi non arcu risus quis varius quam quisque id diam vel quam elementum pulvinar etiam non
-                      quam
-                      lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit
-                      duis tristique sollicitudin nibh sit amet commodo nulla facilisi
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-1 border-on">
-            <div class="col text-center">
-              <a href="" >Apply Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      </div> 
     </div>
-  </div>
-  <br>  <br>
+    </div> <br> <br>
+      <?php
+        }
+      ?>
+    
 
 
-  <div class="container-fluid mt-5 footer border-on">
+    
+    <div class="container-fluid mt-5 footer border-on">
     <div class="row">
       <div class="col-2 my-auto mr-5">
         <img src="../company-3-logo.png" alt="img" height="20%" width="100%">
@@ -218,3 +185,8 @@
 </body>
 
 </html>
+
+   
+
+
+  
