@@ -83,19 +83,19 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-4 job-card">
+      <div class="col-15 job-card" style= "width:800px; margin-left:180px;">
         <div class="container-fluid">
           <div class="row border-on">
             <div class="col-12">
               <div class="container mt-3">
                 <div class="row">
-                  <div class="col-6 job-img">
-                    <img src="" alt="img">
+                  <div class="col-6 job-img" style="width: 180px; margin-left:140px;">
+                    <img src="<?php echo $row["company_logo"]; ?>" alt="img">
                   </div>
-                  <div class="col-2">
-                    <i class="bi bi-hand-thumbs-up"></i>
+                  <div class="col-1" style="margin-left:50px;">
+                    <i class="bi bi-hand-thumbs-up" style="width: 500px;"></i>
                   </div>
-                  <div class="col-2">
+                  <div class="col-1">
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="col-2">
@@ -104,7 +104,7 @@
                 </div>
                 <div class="row mt-1">
 
-                  <div class="col-12 text-center">
+                  <div class="col-20 text-center">
                     <p class="job-name"> <?php echo $row["job_title"]; ?> </p>
                     <p class="skills"> <b> Skills Required: </b> <?php echo $row["skills"]; ?> </p>
                     <p class="job_type"> <b> Job Type: </b> <?php echo $row["job_type"]; ?> </p>

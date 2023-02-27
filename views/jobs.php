@@ -83,6 +83,7 @@
   <table id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
+            <th> Company Logo </th>          
             <th>Job Title</th>
             <th> Skills </th>
             <th>Job Type</th>
@@ -98,7 +99,8 @@
 
                 if ($result ->num_rows > 0){
                     while($row = $result -> fetch_assoc()){
-                        echo "<tr><td>" . $row["job_title"] . "</td><td>" .
+                        echo "<tr><td>" . $row["company_logo"] . "</td><td>" .
+                        $row["job_title"] . "</td><td>" .
                         $row["skills"] . "</td><td>" .
                         $row["job_type"] . "</td><td>" . 
                         $row["salary"] . "</td><td>" . 

@@ -63,6 +63,12 @@
   <div id="PostJobCon" class="container-sm mt-5 py-5 p-5 bg-light login-form">
     <form action= jobpost_connect.php method= "post">
       <div class="form-group">
+        <label for="company_logo">Company Logo</label> <br>
+        <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo">
+      </div>
+      <br>
+
+      <div class="form-group">
         <label for="job_title">Job Title</label>
         <input type="text" class="form-control" name= "job_title" id="job_title" placeholder="Enter Job Title">
       </div>
