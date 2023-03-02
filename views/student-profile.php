@@ -43,7 +43,7 @@
       $this->$experience = $experience;
     }
 
-    //setters and getters
+    //setters and getters baka tanggalin din to
     function getStudentName(){
       return $this->studentName;
     }
