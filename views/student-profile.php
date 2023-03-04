@@ -336,6 +336,12 @@
                       <div class="col">
                         <p>File Name</p>
                       </div>
+                      <div class="col">
+                        <label>
+                          <img src="../graphics/upload-btn">
+                          <input type="file" name="myfile" style="display:none">
+                        </label>
+                      </div>
 
                       <!--
                       <div class="col d-flex flex-row-reverse">
