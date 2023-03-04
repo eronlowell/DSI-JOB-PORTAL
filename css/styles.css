@@ -94,3 +94,6 @@ body {
   backdrop-filter: blur(10px);
  }
 
+ .wrapper{
+  border-top: 30px solid #800;;
+ }
