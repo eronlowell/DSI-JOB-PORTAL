@@ -298,6 +298,44 @@
                       </div>
                       <p><?php echo $newStudent->educationalBackground?></p>
                     </div>
+
+                    <div class="row">
+                  <div class="col d-flex flex-row-reverse mb-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eduModal">
+                      +
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="eduModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Education</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="file-upload-wrapper">
+                              <form action="">
+                              <label for="">School:</label>
+                              <input type="text" class="form-control"><br>
+                              <label for="">Degree:</label>
+                              <input type="text" class="form-control"><br>
+                              <label for="">Year:</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                   </div>
                 </div>
 
@@ -321,6 +359,44 @@
                       </div>
                         <p><?php echo $newStudent->experience ?></p>
                     </div>
+
+                    <div class="row">
+                  <div class="col d-flex flex-row-reverse mb-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#companyModal">
+                      +
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="companyModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Job Experiences</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="file-upload-wrapper">
+                              <form action="">
+                              <label for="">Job Title:</label>
+                              <input type="text" class="form-control"><br>
+                              <label for="">Company Name:</label>
+                              <input type="text" class="form-control"><br>
+                              <label for="">Year:</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                   </div>
                 </div>
 
@@ -333,15 +409,40 @@
                     </div>
 
                     <div class="row">
-                      <div class="col">
-                        <p>File Name</p>
+                  <div class="col">
+                    <p></p>
+                  </div>
+
+
+                  <div class="col d-flex flex-row-reverse mb-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cvModal">
+                      +
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Upload File</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="file-upload-wrapper">
+                              <input type="file" id="input-file-now" class="file-upload" />
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="col">
-                        <label>
-                          <img src="../graphics/upload-btn">
-                          <input type="file" name="myfile" style="display:none">
-                        </label>
-                      </div>
+                    </div>
+                  </div>
+                </div>
 
                       <!--
                       <div class="col d-flex flex-row-reverse">
