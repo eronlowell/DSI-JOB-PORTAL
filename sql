@@ -11,22 +11,21 @@ CREATE TABLE `Student` (
   PRIMARY KEY (`studentID`)
 );
 
-CREATE TABLE `Experience` (
+CREATE TABLE `jobExp` (
   `jobYear` date,
-  `Company Name` varchar(50),
+  `companyName` varchar(50),
   `studentID` int,
-  `Job Title` int,
+  `jobTitle` int,
   PRIMARY KEY (`Job Title`),
   FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
 );
 
-CREATE TABLE `Educational Background` (
+CREATE TABLE `eduBackground` (
   `eduYear` date,
-  `School name` varchar(50),
+  `schoolName` varchar(50),
   `studentID` int,
   `Degree` varchar(255),
-  `EBID` Type,
-  PRIMARY KEY (`EBID`),
+  PRIMARY KEY (`Degree`),
   FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
 );
 

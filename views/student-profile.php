@@ -166,13 +166,14 @@ if ($conn->connect_error) {
 }
 
 $query = "SELECT * FROM student 
-      JOIN Educational Background ON Educational Background.studentID = student.studentID
-      JOIN Experience ON Experience.studentID = student.studentID
+      INNER JOIN eduBackground ON eduBackground.studentID = student.studentID
+      INNER JOIN jobExp ON jobExp.studentID = student.studentID
       WHERE studentID = 1";
 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
+//Student Info
 $studentName = $row["studentName"];
 $age = $row["age"];
 $studentId = $row["studentID"];
@@ -181,11 +182,19 @@ $address = $row["Address"];
 $contactNo = $row["contactNo"];
 $password = $row["Password"];
 $dateOfBirth = 121231;
-$educationalBackground = $row["educationalBackground"];
 $skills = $row["Skills"];
 $gender = $row["Gender"];
 $studentBio = $row["Bio"];
-$experience = $row["experience"];
+
+//Educational Background
+$eduSchool = $row["schoolName"];
+$eduYear = $row["eduYear"]
+$eduDegree = $row["Degree"]
+
+//Job Experiences
+$jobTitle = $row["jobTitle"];
+$jobCompany = $row["companyName"]
+$jobYear = $row["jobYear"]
 
 
 $newStudent = new student($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $educationalBackground, $skills, $gender, $studentBio, $experience);
