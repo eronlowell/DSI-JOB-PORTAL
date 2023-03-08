@@ -168,9 +168,9 @@ if ($conn->connect_error) {
 $query = "SELECT * FROM student 
       WHERE studentID = 1";
 
-$eduQuery = "SELECT * FROM eduBackground";
+$eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1";
 
-$jobQuery = "SELECT * FROM jobExp";
+$jobQuery = "SELECT * FROM jobExp WHERE studentID = 1";
 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
@@ -339,7 +339,7 @@ $conn->close();
 
                     <div class="row">
                       <div class="col">
-                        <p>YYYY - YYYY</p>
+                        <p>Year</p>
                       </div>
                       <div class="col">
                         <p>School</p>
@@ -349,7 +349,22 @@ $conn->close();
                       </div>
                       <p></p>
                     </div>
+                    
 
+                    <?php while ($eduQuery){ ?>
+                    <div class="row">
+                      <div class="col">
+                        <p><?php echo $eduYear?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $eduSchool?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $eduDegree?></p>
+                      </div>
+                      <p></p>
+                    </div>
+                    <?php }?>
                     <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -400,7 +415,7 @@ $conn->close();
 
                     <div class="row">
                       <div class="col">
-                        <p>YYYY - YYYY</p>
+                        <p>Year</p>
                       </div>
                       <div class="col">
                         <p>Company Name</p>
@@ -410,6 +425,23 @@ $conn->close();
                       </div>
                         <p></p>
                     </div>
+
+                    <?php while ($jobQuery){ ?>
+                    <div class="row">
+                      <div class="col">
+                        <p><?php echo $jobYear?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $jobCompany?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $jobTitle?></p>
+                      </div>
+                      <p></p>
+                    </div>
+                    <?php }?>
+
+
 
                     <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
