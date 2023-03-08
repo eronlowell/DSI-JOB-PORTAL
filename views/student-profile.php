@@ -166,12 +166,20 @@ if ($conn->connect_error) {
 }
 
 $query = "SELECT * FROM student 
-      INNER JOIN eduBackground ON eduBackground.studentID = student.studentID
-      INNER JOIN jobExp ON jobExp.studentID = student.studentID
       WHERE studentID = 1";
+
+$eduQuery = "SELECT * FROM eduBackground";
+
+$jobQuery = "SELECT * FROM jobExp";
 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
+
+$eduresult = $conn->query($eduquery);
+$edurow = $eduresult->fetch_assoc();
+
+$jobresult = $conn->query($qjobuery);
+$jobrow = $jobresult->fetch_assoc();
 
 //Student Info
 $studentName = $row["studentName"];
@@ -188,16 +196,16 @@ $studentBio = $row["Bio"];
 
 //Educational Background
 $eduSchool = $row["schoolName"];
-$eduYear = $row["eduYear"]
-$eduDegree = $row["Degree"]
+$eduYear = $row["eduYear"];
+$eduDegree = $row["Degree"];
 
 //Job Experiences
 $jobTitle = $row["jobTitle"];
-$jobCompany = $row["companyName"]
-$jobYear = $row["jobYear"]
+$jobCompany = $row["companyName"];
+$jobYear = $row["jobYear"];
 
 
-$newStudent = new student($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $educationalBackground, $skills, $gender, $studentBio, $experience);
+$newStudent = new student($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $skills, $gender, $studentBio,);
 
 if (!$result) {
     die("Invalid query: " . $conn->error);
@@ -339,7 +347,7 @@ $conn->close();
                       <div class="col">
                         <p>Degree</p>
                       </div>
-                      <p><?php echo $newStudent->educationalBackground ?></p>
+                      <p></p>
                     </div>
 
                     <div class="row">
@@ -400,7 +408,7 @@ $conn->close();
                       <div class="col">
                         <p>Job</p>
                       </div>
-                        <p><?php echo $newStudent->experience ?></p>
+                        <p></p>
                     </div>
 
                     <div class="row">
