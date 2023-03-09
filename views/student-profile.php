@@ -22,13 +22,13 @@ class student
     public $address;
     public $contactNo;
     public $dateOfBirth;
-    public $educationalBackground;
+
     public $skills;
     public $gender;
     public $studentBio;
-    public $experience;
+    
 
-    public function __construct($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $educationalBackground, $skills, $gender, $studentBio, $experience)
+    public function __construct($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $skills, $gender, $studentBio )
     {
         $this->studentId = $studentId;
         $this->studentName = $studentName;
@@ -38,11 +38,11 @@ class student
         $this->address = $address;
         $this->contactNo = $contactNo;
         $this->dateOfBirth = $dateOfBirth;
-        $this->educationalBackground = $educationalBackground;
+
         $this->skills = $skills;
         $this->gender = $gender;
         $this->studentBio = $studentBio;
-        $this->$experience = $experience;
+
     }
 
     //setters and getters baka tanggalin din to
@@ -78,10 +78,7 @@ class student
     {
         return $this->dateOfBirth;
     }
-    public function getEducationalBackground()
-    {
-        return $this->educationalBackground;
-    }
+ 
     public function getSkills()
     {
         return $this->skills;
@@ -94,10 +91,7 @@ class student
     {
         return $this->studentBio;
     }
-    public function getExperience()
-    {
-        return $this->experience;
-    }
+
     public function setStudentName($studentName)
     {
         $this->studentName = $studentName;
@@ -130,10 +124,7 @@ class student
     {
         $this->dateOfBirth = $dateOfBirth;
     }
-    public function setEducationalBackground($educationalBackground)
-    {
-        $this->educationalBackground = $educationalBackground;
-    }
+   
     public function setSkills($skills)
     {
         $this->skills = $skills;
@@ -146,10 +137,7 @@ class student
     {
         $this->studentBio = $studentBio;
     }
-    public function setExperience($experience)
-    {
-        $this->experience = $experience;
-    }
+
 };
 
 $servername = "localhost";
