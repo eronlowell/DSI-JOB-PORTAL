@@ -11,8 +11,9 @@
   <title>JOB PORTAL</title>
 </head>
 
-<?php 
-  class student{
+<?php
+class student
+{
     public $studentId;
     public $studentName;
     public $age;
@@ -21,146 +22,184 @@
     public $address;
     public $contactNo;
     public $dateOfBirth;
-    public $educationalBackground;
+
     public $skills;
     public $gender;
     public $studentBio;
-    public $experience;
+    
 
-    function __construct($studentId,$studentName,$age,$email,$password,$address,$contactNo,$dateOfBirth,$educationalBackground,$skills,$gender,$studentBio,$experience){
-      $this->studentId = $studentId;
-      $this->studentName = $studentName;
-      $this->age = $age;
-      $this->email= $email;
-      $this->password = $password;
-      $this->address = $address;
-      $this->contactNo = $contactNo;
-      $this->dateOfBirth = $dateOfBirth;
-      $this->educationalBackground = $educationalBackground;
-      $this->skills = $skills;
-      $this->gender = $gender;
-      $this->studentBio = $studentBio;
-      $this->$experience = $experience;
+    public function __construct($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $skills, $gender, $studentBio )
+    {
+        $this->studentId = $studentId;
+        $this->studentName = $studentName;
+        $this->age = $age;
+        $this->email = $email;
+        $this->password = $password;
+        $this->address = $address;
+        $this->contactNo = $contactNo;
+        $this->dateOfBirth = $dateOfBirth;
+
+        $this->skills = $skills;
+        $this->gender = $gender;
+        $this->studentBio = $studentBio;
+
     }
 
     //setters and getters baka tanggalin din to
-    function getStudentName(){
-      return $this->studentName;
+    public function getStudentName()
+    {
+        return $this->studentName;
     }
-    function getStudentId(){
-      return $this->studentId;
+    public function getStudentId()
+    {
+        return $this->studentId;
     }
-    function getAge(){
-      return $this->age;
+    public function getAge()
+    {
+        return $this->age;
     }
-    function getEmail(){
-      return $this->email;
+    public function getEmail()
+    {
+        return $this->email;
     }
-    function getPassword(){
-      return $this->password;
+    public function getPassword()
+    {
+        return $this->password;
     }
-    function getAddress(){
-      return $this->address;
+    public function getAddress()
+    {
+        return $this->address;
     }
-    function getContactNo(){
-      return $this->contactNo;
+    public function getContactNo()
+    {
+        return $this->contactNo;
     }
-    function getDateOfBirth(){
-      return $this->dateOfBirth;
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
-    function getEducationalBackground(){
-      return $this->educationalBackground;
+ 
+    public function getSkills()
+    {
+        return $this->skills;
     }
-    function getSkills(){
-      return $this->skills;
+    public function getGender()
+    {
+        return $this->gender;
     }
-    function getGender(){
-      return $this->gender;
+    public function getStudentBio()
+    {
+        return $this->studentBio;
     }
-    function getStudentBio(){
-      return $this->studentBio;
-    }    
-    function getExperience(){
-      return $this->experience;
-    }
-    function setStudentName($studentName){
-      $this->studentName = $studentName;
-    }
-    function setStudentId($studentId){
-      $this->studentId = $studentId;
-    }
-    function setAge($age){
-      $this->age = $age;
-    }
-    function setEmail($email){
-      $this->email = $email;
-    }
-    function setPassword($password){
-      $this->password = $password;
-    }
-    function setAddress($address){
-      $this->address = $address;
-    }
-    function setContactNo($contactNo){
-      $this->contactNo = $contactNo;
-    }
-    function setDateOfBirth($dateOfBirth){
-      $this->dateOfBirth= $dateOfBirth;
-    }
-    function setEducationalBackground($educationalBackground){
-      $this->educationalBackground = $educationalBackground;
-    }
-    function setSkills($skills){
-      $this->skills = $skills;
-    }
-    function setGender($gender){
-      $this->gender= $gender;
-    }
-    function setStudentBio($studentBio){
-      $this->studentBio = $studentBio;
-    }
-    function setExperience($experience){
-      $this->experience = $experience;
-    }
-  };
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "jobpost_db";
+    public function setStudentName($studentName)
+    {
+        $this->studentName = $studentName;
+    }
+    public function setStudentId($studentId)
+    {
+        $this->studentId = $studentId;
+    }
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+    public function setContactNo($contactNo)
+    {
+        $this->contactNo = $contactNo;
+    }
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+   
+    public function setSkills($skills)
+    {
+        $this->skills = $skills;
+    }
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+    public function setStudentBio($studentBio)
+    {
+        $this->studentBio = $studentBio;
+    }
 
-  //create sql connection
-  $conn = new mysqli($servername, $username, $password, $database);
+};
 
-  //check connection
-  if($conn->connect_error){
-    die("Connection failed: ". $conn->connect_error);
-  }
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "jobpost_db";
 
-  $query = "SELECT * FROM student WHERE studentID = 1";
-  $result = $conn->query($query);
-  $row = $result->fetch_assoc();
+//create sql connection
+$conn = new mysqli($servername, $username, $password, $database);
 
-  $studentName = $row["studentName"];
-  $age = $row["age"];
-  $studentId = $row["studentID"];
-  $email = $row["email"];
-  $address = $row["Address"];
-  $contactNo = $row["contactNo"];
-  $password = $row["Password"];
-  $dateOfBirth = 121231;
-  $educationalBackground =$row["educationalBackground"];
-  $skills = $row["Skills"];
-  $gender = $row["Gender"];
-  $studentBio = $row["Bio"];
-  $experience = $row["experience"];
-  
-  $newStudent = new student($studentId,$studentName,$age,$email,$password,$address,$contactNo,$dateOfBirth,$educationalBackground,$skills,$gender,$studentBio,$experience);
+//check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-  if(!$result){
+$query = "SELECT * FROM student 
+      WHERE studentID = 1";
+
+$eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1";
+
+$jobQuery = "SELECT * FROM jobExp WHERE studentID = 1";
+
+$result = $conn->query($query);
+$row = $result->fetch_assoc();
+
+$eduresult = $conn->query($eduquery);
+$edurow = $eduresult->fetch_assoc();
+
+$jobresult = $conn->query($qjobuery);
+$jobrow = $jobresult->fetch_assoc();
+
+//Student Info
+$studentName = $row["studentName"];
+$age = $row["age"];
+$studentId = $row["studentID"];
+$email = $row["email"];
+$address = $row["Address"];
+$contactNo = $row["contactNo"];
+$password = $row["Password"];
+$dateOfBirth = 121231;
+$skills = $row["Skills"];
+$gender = $row["Gender"];
+$studentBio = $row["Bio"];
+
+//Educational Background
+$eduSchool = $row["schoolName"];
+$eduYear = $row["eduYear"];
+$eduDegree = $row["Degree"];
+
+//Job Experiences
+$jobTitle = $row["jobTitle"];
+$jobCompany = $row["companyName"];
+$jobYear = $row["jobYear"];
+
+
+$newStudent = new student($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $skills, $gender, $studentBio,);
+
+if (!$result) {
     die("Invalid query: " . $conn->error);
-  };
-  $conn->close();
+}
+;
+$conn->close();
 
 ?>
 
@@ -178,7 +217,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
-          
+
           <li class="nav-item">
             <a class="nav-link ms-5" href="find-job.html">Find A Job</a>
           </li>
@@ -208,7 +247,7 @@
                   <img src="../no-profile.png" alt="img" class="rounded-circle" height="100%">
                 </div>
                 <div class="col-12 mt-3">
-                  <p class="text-center fs-3"><?php echo $newStudent->studentName?></p>
+                  <p class="text-center fs-3"><?php echo $newStudent->studentName ?></p>
                 </div>
                 <div class="col-12 mt-0">
                   <p class="text-center">Student</p>
@@ -220,13 +259,13 @@
                   <a href="">Edit</a>
                 </div>
                 <div class="col-12 mt-0 d-flex justify-content-evenly">
-                  <!-- <p class="fs-6 "><?php echo $newStudent->studentBio?></p> -->
+                  <!-- <p class="fs-6 "><?php echo $newStudent->studentBio ?></p> -->
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
                   <!-- replace paragraph with list or add new list then put this for loop -->
-                  <p class="fs-5"><?php echo $newStudent->skills?></p>
+                  <p class="fs-5"><?php echo $newStudent->skills ?></p>
                 </div>
                 <div class="col-3 m-2">
                   <p> </p>
@@ -257,22 +296,22 @@
                     <div class="row">
                       <div class="col-6">
                         <p>Age</p>
-                        <p><?php echo $newStudent->age?></p>
+                        <p><?php echo $newStudent->age ?></p>
                       </div>
-                      
+
                       <div class="col-6">
                         <p>Contact Number</p>
-                        <p><?php echo $newStudent->contactNo?></p>
+                        <p><?php echo $newStudent->contactNo ?></p>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-6">
                         <p>Location</p>
-                        <p><?php echo $newStudent->address?></p>
+                        <p><?php echo $newStudent->address ?></p>
                       </div>
                       <div class="col-6">
                         <p>Email Address</p>
-                        <p><?php echo $newStudent->email?></p>
+                        <p><?php echo $newStudent->email ?></p>
                       </div>
                     </div>
                   </div>
@@ -288,7 +327,7 @@
 
                     <div class="row">
                       <div class="col">
-                        <p>YYYY - YYYY</p>
+                        <p>Year</p>
                       </div>
                       <div class="col">
                         <p>School</p>
@@ -296,9 +335,24 @@
                       <div class="col">
                         <p>Degree</p>
                       </div>
-                      <p><?php echo $newStudent->educationalBackground?></p>
+                      <p></p>
                     </div>
+                    
 
+                    <?php while ($eduQuery){ ?>
+                    <div class="row">
+                      <div class="col">
+                        <p><?php echo $eduYear?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $eduSchool?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $eduDegree?></p>
+                      </div>
+                      <p></p>
+                    </div>
+                    <?php }?>
                     <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -349,7 +403,7 @@
 
                     <div class="row">
                       <div class="col">
-                        <p>YYYY - YYYY</p>
+                        <p>Year</p>
                       </div>
                       <div class="col">
                         <p>Company Name</p>
@@ -357,8 +411,25 @@
                       <div class="col">
                         <p>Job</p>
                       </div>
-                        <p><?php echo $newStudent->experience ?></p>
+                        <p></p>
                     </div>
+
+                    <?php while ($jobQuery){ ?>
+                    <div class="row">
+                      <div class="col">
+                        <p><?php echo $jobYear?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $jobCompany?></p>
+                      </div>
+                      <div class="col">
+                        <p><?php echo $jobTitle?></p>
+                      </div>
+                      <p></p>
+                    </div>
+                    <?php }?>
+
+
 
                     <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
@@ -376,15 +447,16 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Job Experiences</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
+                          <form method="post" action="student-profile.php">
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <form action="">
+
                               <label for="">Job Title:</label>
-                              <input type="text" class="form-control"><br>
+                              <input type="text" class="form-control" id ="jobTitle" name="jobTitle"><br>
                               <label for="">Company Name:</label>
-                              <input type="text" class="form-control"><br>
+                              <input type="text" class="form-control" id ="companyName" name="companyName"><br>
                               <label for="">Year:</label>
-                              <input type="text" class="form-control">
+                              <input type="text" class="form-control" id ="jobYear" name="jobYear">
                             </div>
                           </div>
                           <div class="modal-footer">

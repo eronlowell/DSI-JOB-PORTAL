@@ -97,3 +97,12 @@ body {
  .wrapper{
   border-top: 30px solid #800;;
  }
+
+ .dropdown-menu-right {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.stud-btn2{
+  background-color: #800;
+}
