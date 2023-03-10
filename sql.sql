@@ -12,6 +12,8 @@ CREATE TABLE `Student` (
   PRIMARY KEY (`studentID`)
 );
 
+ALTER TABLE `Student` MODIFY `studentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2160;
+
 CREATE TABLE `jobExp` (
   `jobYear` date,
   `companyName` varchar(50),
