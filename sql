@@ -3,6 +3,7 @@ CREATE TABLE `Student` (
   `email` varchar(255),
   `Password` varchar(255),
   `studentName` varchar(255),
+  `studentAge` int,
   `Address` varchar(255),
   `contactNo` varchar(255),
   `dateofBirth` date,
