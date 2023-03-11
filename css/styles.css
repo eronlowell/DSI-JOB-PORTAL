@@ -1,12 +1,16 @@
 body {
     background: rgba(255, 255, 255, 0.5);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial' ;
   }
+.fw-boldest{
+  font-weight: 10000px;
+}
 .logo{
   padding-left: 2rem;
   font-size: 2rem;
   font-weight: bold;
 }
+
 
 .font-color{
   color: white;
