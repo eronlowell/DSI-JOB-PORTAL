@@ -12,6 +12,7 @@
 </head>
 
 <?php
+
 class student
 {
   public $studentId;
@@ -41,6 +42,26 @@ class student
     $this->studentBio = $studentBio;
 
     $this->education = array();
+  }
+
+  public function addBackground($degree, $schoolName, $schoolYear)
+  {
+    $background = array(
+      'degree' => $degree,
+      'institution' => $schoolName,
+      'year' => $schoolYear
+    );
+    $this->education[] = $background;
+  }
+
+  public function showEducation()
+  {
+    echo print_r($this->education);
+  }
+
+  public function getBackgrounds()
+  {
+    return $this->education;
   }
 
   //setters and getters baka tanggalin din to
@@ -76,7 +97,6 @@ class student
   {
     return $this->dateOfBirth;
   }
-
   public function getGender()
   {
     return $this->gender;
@@ -85,7 +105,6 @@ class student
   {
     return $this->studentBio;
   }
-
   public function setStudentName($studentName)
   {
     $this->studentName = $studentName;
@@ -171,17 +190,19 @@ $gender = $row["Gender"];
 $studentBio = $row["Bio"];
 
 //Educational Background
-$eduSchool = $row["schoolName"];
-$eduYear = $row["eduYear"];
-$eduDegree = $row["Degree"];
+$eduSchool = $edurow["schoolName"];
+$eduYear = $edurow["eduYear"];
+$eduDegree = $edurow["Degree"];
 
 //Job Experiences
-$jobTitle = $row["jobTitle"];
-$jobCompany = $row["companyName"];
-$jobYear = $row["jobYear"];
+$jobTitle = $jobrow["jobTitle"];
+$jobCompany = $jobrow["companyName"];
+$jobYear = $jobrow["jobYear"];
 
 
-$newStudent = new student($studentId, $studentName, $age, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio,);
+$newStudent = new student($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio);
+
+$newStudent->addBackground($eduDegree, $eduSchool, $eduYear);
 
 if (!$result) {
   die("Invalid query: " . $conn->error);
@@ -244,8 +265,8 @@ $conn->close();
             <div class="col-6 d-flex flex-row-reverse">
               <a href="">Edit</a>
             </div>
-            <div class="col-12 mt-0 d-flex justify-content-evenly">
-              <!-- <p class="fs-6 "><?php echo $newStudent->studentBio ?></p> -->
+            <div class="col-12 mt-0 d-flex justify-content-evenly text-sm-start">
+              <p class="fs-6 d-flex justify-content-evenly text-md-start"><?php echo $newStudent->studentBio ?></p>
             </div>
           </div>
           <div class="row">
@@ -325,20 +346,22 @@ $conn->close();
                 </div>
 
 
-                <?php while ($eduQuery) { ?>
-                  <div class="row">
-                    <div class="col">
-                      <p><?php echo $eduYear ?></p>
-                    </div>
-                    <div class="col">
-                      <p><?php echo $eduSchool ?></p>
-                    </div>
-                    <div class="col">
-                      <p><?php echo $eduDegree ?></p>
-                    </div>
-                    <p></p>
+                <!-- <?php #while ($eduQuery) { 
+                      ?> -->
+                <div class="row">
+                  <div class="col">
+                    <p><?php echo $eduYear ?></p>
                   </div>
-                <?php } ?>
+                  <div class="col">
+                    <p><?php echo $eduSchool ?></p>
+                  </div>
+                  <div class="col">
+                    <p><?php echo $eduDegree ?></p>
+                  </div>
+                  <p></p>
+                </div>
+                <!-- <?php #} 
+                      ?> -->
                 <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -399,20 +422,22 @@ $conn->close();
                   <p></p>
                 </div>
 
-                <?php while ($jobQuery) { ?>
-                  <div class="row">
-                    <div class="col">
-                      <p><?php echo $jobYear ?></p>
-                    </div>
-                    <div class="col">
-                      <p><?php echo $jobCompany ?></p>
-                    </div>
-                    <div class="col">
-                      <p><?php echo $jobTitle ?></p>
-                    </div>
-                    <p></p>
+                <?php //while ($jobQuery) { 
+                ?>
+                <div class="row">
+                  <div class="col">
+                    <p><?php echo $jobYear ?></p>
                   </div>
-                <?php } ?>
+                  <div class="col">
+                    <p><?php echo $jobCompany ?></p>
+                  </div>
+                  <div class="col">
+                    <p><?php echo $jobTitle ?></p>
+                  </div>
+                  <p></p>
+                </div>
+                <!-- <?php //} 
+                      ?> -->
 
 
 
