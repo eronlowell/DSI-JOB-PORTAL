@@ -32,3 +32,13 @@ CREATE TABLE `eduBackground` (
   FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
 );
 
+CREATE TABLE `jobpost` (
+  `id` int(11) NOT NULL,
+  `company_logo` varchar(100) NOT NULL,
+  `job_title` varchar(50) NOT NULL,
+  `skills` varchar(50) NOT NULL,
+  `job_type` enum('Full-time','Part-time','Internship') NOT NULL,
+  `salary` int(20) NOT NULL,
+  `positions` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
