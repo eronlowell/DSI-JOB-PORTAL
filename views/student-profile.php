@@ -26,6 +26,7 @@ class student
   public $gender;
   public $studentBio;
   public $education;
+  public $jobExp;
 
 
   public function __construct($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio)
@@ -42,6 +43,7 @@ class student
     $this->studentBio = $studentBio;
 
     $this->education = array();
+    $this->jobExp = array();
   }
 
   public function addBackground($degree, $schoolName, $schoolYear)
@@ -54,11 +56,20 @@ class student
     $this->education[] = $background;
   }
 
-  public function showEducation()
+  public function addExp($jobTitle, $companyName, $jobYear)
   {
-    echo print_r($this->education);
+    $background = array(
+      'jobTitle' => $jobTitle,
+      'companyName' => $companyName,
+      'jobYear' => $jobYear
+    );
+    $this->jobExp[] = $background;
   }
 
+  public function getExp()
+  {
+    return $this->jobExp;
+  }
   public function getBackgrounds()
   {
     return $this->education;
@@ -164,15 +175,16 @@ if ($conn->connect_error) {
 $query = "SELECT * FROM student 
       WHERE studentID = 1";
 
-$eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1";
+//sort by year
+$eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1 ORDER BY eduYear DESC";
 
-$jobQuery = "SELECT * FROM jobExp WHERE studentID = 1";
+$jobQuery = "SELECT * FROM jobExp WHERE studentID = 1 ORDER BY jobYear DESC";
 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
 $eduresult = $conn->query($eduQuery);
-$edurow = $eduresult->fetch_assoc();
+$edurow = $eduresult->fetch_all();
 
 $jobresult = $conn->query($jobQuery);
 $jobrow = $jobresult->fetch_assoc();
@@ -189,11 +201,6 @@ $dateOfBirth = 121231;
 $gender = $row["Gender"];
 $studentBio = $row["Bio"];
 
-//Educational Background
-$eduSchool = $edurow["schoolName"];
-$eduYear = $edurow["eduYear"];
-$eduDegree = $edurow["Degree"];
-
 //Job Experiences
 $jobTitle = $jobrow["jobTitle"];
 $jobCompany = $jobrow["companyName"];
@@ -202,13 +209,26 @@ $jobYear = $jobrow["jobYear"];
 
 $newStudent = new student($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio);
 
-$newStudent->addBackground($eduDegree, $eduSchool, $eduYear);
+foreach ($eduresult as $edurow) {
+  $eduSchool = $edurow["schoolName"];
+  $eduYear = $edurow["eduYear"];
+  $eduDegree = $edurow["Degree"];
+
+  $newStudent->addBackground($eduDegree, $eduSchool, $eduYear);
+}
+
+foreach ($jobresult as $jobrow) {
+  $jobTitle = $jobrow["jobTitle"];
+  $jobCompany = $jobrow["companyName"];
+  $jobYear = $jobrow["jobYear"];;
+
+  $newStudent->addExp($jobTitle, $jobCompany, $jobYear);
+}
 
 if (!$result) {
   die("Invalid query: " . $conn->error);
 };
 $conn->close();
-
 ?>
 
 
@@ -346,22 +366,22 @@ $conn->close();
                 </div>
 
 
-                <!-- <?php #while ($eduQuery) { 
-                      ?> -->
-                <div class="row">
-                  <div class="col">
-                    <p><?php echo $eduYear ?></p>
+                <?php for ($i = 0; $i < count($newStudent->education); $i++) {
+                  $education = $newStudent->getBackgrounds(); ?>
+                  <div class="row">
+                    <div class="col">
+                      <p><?php echo $education[$i]['year'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $education[$i]['institution'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $education[$i]['degree'] ?></p>
+                    </div>
+                    <p></p>
                   </div>
-                  <div class="col">
-                    <p><?php echo $eduSchool ?></p>
-                  </div>
-                  <div class="col">
-                    <p><?php echo $eduDegree ?></p>
-                  </div>
-                  <p></p>
-                </div>
-                <!-- <?php #} 
-                      ?> -->
+                <?php }
+                ?>
                 <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -422,22 +442,22 @@ $conn->close();
                   <p></p>
                 </div>
 
-                <?php //while ($jobQuery) { 
+                <?php for ($i = 0; $i < count($newStudent->jobExp); $i++) {
+                  $jobExp = $newStudent->getExp(); ?>
+                  <div class="row">
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['jobYear'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['companyName'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['jobTitle'] ?></p>
+                    </div>
+                    <p></p>
+                  </div>
+                <?php }
                 ?>
-                <div class="row">
-                  <div class="col">
-                    <p><?php echo $jobYear ?></p>
-                  </div>
-                  <div class="col">
-                    <p><?php echo $jobCompany ?></p>
-                  </div>
-                  <div class="col">
-                    <p><?php echo $jobTitle ?></p>
-                  </div>
-                  <p></p>
-                </div>
-                <!-- <?php //} 
-                      ?> -->
 
 
 
