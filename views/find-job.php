@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 
 <?php
+
+$results_per_page = 4;
 $conn = new mysqli("localhost", "root", "", "jobpost_db");
 $sql = "SELECT * FROM jobpost";
 $all_jobs = $conn->query($sql);
-
+$number_of_result = mysqli_num_rows($result);  
 $row = mysqli_fetch_assoc($all_jobs);
+
+$number_of_page = ceil ($number_of_result / $results_per_page);  
+
+
+if (!isset ($_GET['page']) ) {  
+  $page = 1;  
+} else {  
+  $page = $_GET['page'];  
+}  
+
+$page_first_result = ($page-1) * $results_per_page;  
+
+
+
 ?>
 
 
@@ -80,7 +96,11 @@ $row = mysqli_fetch_assoc($all_jobs);
     <div class="row">
 
       <?php
-      for ($i = 0; $i < count($row); $i++) {
+
+    $sql = "SELECT *FROM alphabet LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $all_jobs = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($all_jobs);  
+    while ($row) {
       ?>
         <div class="col-3 mb-5">
           <div class="card">
@@ -98,6 +118,16 @@ $row = mysqli_fetch_assoc($all_jobs);
 
       <?php
       }
+
+
+
+      for($page = 1; $page<= $number_of_page; $page++) {  
+        echo '<a href = "index2.php?page=' . $page . '">' . $page . ' </a>';  
+    }  
+
+
+
+    
       ?>
 
     </div>
