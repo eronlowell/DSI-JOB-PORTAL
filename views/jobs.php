@@ -80,6 +80,10 @@
 
   <div class="jobs_table">
     <h1> Jobs </h1> <br>
+    <form action="pdf.php" method="post">  
+      <input type="submit" name="generate_pdf" class="btn btn-success" value="Generate PDF" />  
+    </form>  
+    <br>
   <table id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
