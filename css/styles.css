@@ -10,7 +10,13 @@ body {
   font-size: 2rem;
   font-weight: bold;
 }
-
+.bg {
+  background-image: url("assets/Opportunity-awaits-banner.png");
+  height: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .font-color{
   color: white;
