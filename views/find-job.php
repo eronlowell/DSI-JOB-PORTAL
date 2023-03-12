@@ -6,19 +6,20 @@ $results_per_page = 4;
 $conn = new mysqli("localhost", "root", "", "jobpost_db");
 $sql = "SELECT * FROM jobpost";
 $all_jobs = $conn->query($sql);
-$number_of_result = mysqli_num_rows($result);  
-$row = mysqli_fetch_assoc($all_jobs);
+$number_of_result = mysqli_num_rows($all_jobs);
 
-$number_of_page = ceil ($number_of_result / $results_per_page);  
+$number_of_page = ceil($number_of_result / $results_per_page);
 
 
-if (!isset ($_GET['page']) ) {  
-  $page = 1;  
-} else {  
-  $page = $_GET['page'];  
-}  
+if (!isset($_GET['page'])) {
+  $page = 1;
+} else {
+  $page = $_GET['page'];
+}
 
-$page_first_result = ($page-1) * $results_per_page;  
+echo $page;
+
+$page_first_result = ($page - 1) * $results_per_page;
 
 
 
@@ -97,10 +98,10 @@ $page_first_result = ($page-1) * $results_per_page;
 
       <?php
 
-    $sql = "SELECT *FROM alphabet LIMIT " . $page_first_result . ',' . $results_per_page;  
-    $all_jobs = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($all_jobs);  
-    while ($row) {
+      $sql = "SELECT *FROM jobpost LIMIT " . $page_first_result . ',' . $results_per_page;
+      $all_jobs = mysqli_query($conn, $sql);
+      // $row = mysqli_fetch_assoc($all_jobs);
+      while ($row = mysqli_fetch_assoc($all_jobs)) {
       ?>
         <div class="col-3 mb-5">
           <div class="card">
@@ -112,23 +113,53 @@ $page_first_result = ($page-1) * $results_per_page;
               <p class="salary"> <b> Salary: </b> <?php echo $row["salary"]; ?> </p>
               <p class="positions"> <b> Positions Offered: </b> <?php echo $row["positions"]; ?> </p>
               <a href="#" class="btn btn-primary">Apply Now</a>
+              <button type="button" class="btn btn-secondary" target="_blank" onclick="window.location.href='company-profiles.html';"> <i class="bi bi-eye-fill"> </i> </button>
             </div>
           </div>
         </div>
 
       <?php
       }
-
-
-
-      for($page = 1; $page<= $number_of_page; $page++) {  
-        echo '<a href = "index2.php?page=' . $page . '">' . $page . ' </a>';  
-    }  
-
-
-
-    
       ?>
+
+      <nav class="mx-auto" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <?php
+            $pageNumber = 1;
+            if ($page >= 2) {
+              echo '<a class="page-link" href="find-job.php?page=' . ($page - 1) . '" aria-label="Previous">';
+              echo '<span aria-hidden="true">&laquo;</span>';
+            } else {
+              echo '<a class="page-link disabled" href="find-job.php?page=' . ($page - 1) . '" aria-label="Previous">';
+              echo '<span aria-hidden="true" class="disabled">&laquo;</span>';
+            }
+            ?>
+            </a>
+          </li>
+          <?php for ($page = 1; $page <= $number_of_page; $page++) {
+            echo '    <li class="page-item"><a class="page-link" href = "find-job.php?page=' . $page . '"> ' . $page . '</a></li>';
+          }
+
+          if (!isset($_GET['page'])) {
+            $page = 1;
+          } else {
+            $page = $_GET['page'];
+          }
+          ?>
+          <li class="page-item">
+            <?php
+            if ($page < $number_of_page) {
+              echo '<a class="page-link" href="find-job.php?page=' . ($page + 1) . '" aria-label="Next">';
+            } else {
+              echo '<a class="page-link disabled" href="find-job.php?page=' . ($page - 1) . '" aria-label="Next">';
+            }
+            ?>
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
   </div>
