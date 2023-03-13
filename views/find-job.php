@@ -99,8 +99,18 @@ $page_first_result = ($page - 1) * $results_per_page;
     <div class="row">
 
       <?php
-      $search = $_GET['search'];
-      if ($search = ''){
+      
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+          // Perform the search using $_GET['q']
+          $search = $_GET['search'];
+          // ...
+        } else {
+          // Display an error message or provide a default value
+          $search = 'default value';
+          // ...
+        }
+
+      if ($search = 'default value'){
       $sql = "SELECT *FROM jobpost LIMIT " . $page_first_result . ',' . $results_per_page;
     }
     else{
