@@ -1,11 +1,21 @@
 body {
     background: rgba(255, 255, 255, 0.5);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial' ;
   }
+.fw-boldest{
+  font-weight: 10000px;
+}
 .logo{
   padding-left: 2rem;
   font-size: 2rem;
   font-weight: bold;
+}
+.bg {
+  background-image: url("assets/Opportunity-awaits-banner.png");
+  height: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .font-color{
@@ -91,7 +101,7 @@ body {
 }
 
  .frost{
-  backdrop-filter: blur(10px);
+  background-color: rgba(19, 19, 19, 0.52);
  }
 
  .wrapper{
