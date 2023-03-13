@@ -34,10 +34,10 @@ include 'student-login.php';
                 <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link ms-5" href="find-job.html">Find A Job</a>
+                        <a class="nav-link ms-5" href="find-job.php">Find A Job</a>
                     </li>
                     <li class="nav-item mx-5">
-                        <a class="nav-link " href="#">Company Profiles</a>
+                        <a class="nav-link " href="company-profile.html">Company Profiles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Career Guides</a>
@@ -85,6 +85,15 @@ include 'student-login.php';
             </div>
 
             <div class="row">
+            <div class="row">
+            <div class="col text-center mt-5">
+                <p class="fs-1">
+                    Edit Profile
+                </p>
+            </div>
+        </div>
+
+
                 <div class="col-6">
                     <label for="" class="mb-2">Email Address:</label><br>
                     <input class="form-control mb-3" type="text" placeholder="Email Address">

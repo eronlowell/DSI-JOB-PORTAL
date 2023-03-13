@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <title>JOB PORTAL</title>
+  <title>Employer Login</title>
 
 
 </head>
@@ -21,16 +21,17 @@
     <div class="row">
       <div class="col-6 mx-auto mt-5">
         <div id="LogInCon" class="container-sm mt-5 py-5 p-5 bg-light login-form">
-          <form>
+
+          <form action="login-employer.php">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Email">
+              <label for="businessEmail">Email</label>
+              <input type="email" class="form-control" name="businessEmail" id="businessEmail"
+                placeholder="Enter Business Email" required>
             </div>
             <br>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" required>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -38,8 +39,11 @@
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Login</button>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>
+          <br>
+          <a href="signup.php">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </a>
         </div>
       </div>
     </div>

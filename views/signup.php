@@ -13,32 +13,33 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
       <title>Signup</title>
     </head>
+
 <body style="background-image: url('assets/bg1.jpg');">
     <div class="container">
             <div class="row mt-4">
                 <div class="col-lg-6 bg-white m-auto rounded-4 wrapper">
                     <h2 class="text-center pt-3">Signup Now</h2>
                     <p class="text-center pt-3 text-muted lead">Start Recruiting from the employer's choice graduates</p>
-                    <form action="signup.php" method="post">
+                    <form action="signup_connect.php" method="post">
                         <div class="input-group mb-3">
-                            <label class="input-group-text">Fullname</label>
-                            <input type="text" class="form-control text-left" name="fullname">
+                            <label class="input-group-text">Full Name</label>
+                            <input type="text" class="form-control text-left" id ="fullName" name="fullName">
                         </div>
                         <div class="input-group mb-3">
                             <label class="input-group-text">Company Name</label>
-                            <input type="text" class="form-control text-left" name="CompanyName">
+                            <input type="text" class="form-control text-left" id="companyName" name="companyName">
                         </div>
                         <div class="input-group mb-3">
                             <label class="input-group-text text-left">Business Email</label>
-                            <input type="text" class="form-control text-left" name="BusinessEmail">
+                            <input type="email" class="form-control text-left" id="businessEmail" name="businessEmail">
                         </div>
                         <div class="input-group mb-3">
                             <label class="input-group-text">Company Website</label>
-                            <input type="text" class="form-control text-left" name="CompanyWebsite">
+                            <input type="text" class="form-control text-left" id="companyWebsite" name="companyWebsite">
                         </div>
                         <div class="input-group mb-3">
                             <label class="input-group-text">Password</label>
-                            <input type="text" class="form-control text-left" name="Password">
+                            <input type="text" class="form-control text-left" id= "pass" name="pass">
                         </div>
                         <div class="d-grid mb-4">
                             <input type="submit" class="btn btn-primary" value="Sign Up" />
@@ -47,32 +48,6 @@
                 </div>
             </div>
     </div>
-    <?php 
-    //bug: nilalagay nya kahit error ang input pati paghandle ng sensitive data like password
-        $fullName =  $_POST["fullname"];
-        $companyName = $_POST["CompanyName"];
-        $businessEmail = $_POST["BusinessEmail"];
-        $companyWebsite = $_POST["CompanyWebsite"];
-        $password = $_POST["Password"];
-        
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "jobpost_db";
 
-        //create sql connection
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        //check connection
-        if($conn->connect_error){
-            die("Connection failed: ". $conn->connect_error);
-        }
-
-        $stmt = $conn->prepare("INSERT INTO employer (email, password, employerName, companyName) VALUES(?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $businessEmail, $password, $fullName, $companyName,);
-
-        $stmt->execute();
-        $stmt->close();
-    ?>
 </body>
 </html>

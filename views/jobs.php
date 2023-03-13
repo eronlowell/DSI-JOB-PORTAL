@@ -17,7 +17,7 @@
 
 
 
-  <title>COMPANY JOBS</title>
+  <title>Job Database | Employer</title>
 
 
 </head>
@@ -42,7 +42,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #eab676;">
     <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">Job Portal</a>
+      <img src="assets/jobportal_logo1.png" height="100px" width="275px"  class="d-inline-block align-text-top">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,19 +50,19 @@
       <div class="collapse navbar-collapse login-nav" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active">
-            <a class="nav-link " href="index.html">Home </a>
+            <a class="nav-link fs-3 fw-bold" href="index.html">Home </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Profile</a>
+            <a class="nav-link fs-3 fw-bold" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="jobs.php">Jobs</a>
+            <a class="nav-link fs-3 fw-bold" href="jobs.php">Jobs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Candidates</a>
+            <a class="nav-link fs-3 fw-bold" href="candidates.html">Candidates</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="jobpost.php"> + Post a Job</a>
+            <a class="nav-link fs-3 fw-bold" href="jobpost.php"> + Post a Job</a>
           </li>
           
           <li class="nav-item">

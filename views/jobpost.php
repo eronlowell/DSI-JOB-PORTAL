@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://kit.fontawesome.com/d96e1e0d74.css" crossorigin="anonymous">
-  <title>POST A JOB</title>
+  <title>Post a Job | Employer</title>
 
 
 </head>
@@ -23,9 +23,9 @@
 
 <body style="background-image: url('assets/postjob.jpg');">
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #eab676;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #eab676;">
     <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">Job Portal</a>
+      <img src="assets/jobportal_logo1.png" height="100px" width="275px"  class="d-inline-block align-text-top">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,20 +33,21 @@
       <div class="collapse navbar-collapse login-nav" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active">
-            <a class="nav-link " href="index.html">Home </a>
+            <a class="nav-link fs-3 fw-bold" href="index.html">Home </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Profile</a>
+            <a class="nav-link fs-3 fw-bold" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="jobs.php">Jobs</a>
+            <a class="nav-link fs-3 fw-bold" href="jobs.php">Jobs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Candidates</a>
+            <a class="nav-link fs-3 fw-bold" href="candidates.html">Candidates</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="jobpost.php"> + Post a Job</a>
+            <a class="nav-link fs-3 fw-bold" href="jobpost.php"> + Post a Job</a>
           </li>
+          
           <li class="nav-item">
             <a class="icon-block " href="#"><i class="fa-regular fa-messages"> </i></a>
           </li>
@@ -85,7 +86,6 @@
         <select id="job_type" name="job_type">
             <option value="Full-Time"> Full-Time </option>
             <option value="Part-Time"> Part-Time </option>
-            <option value="Internship"> Internship </option>
         </select>
       </div>
       <br>
