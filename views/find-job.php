@@ -100,7 +100,7 @@ $page_first_result = ($page - 1) * $results_per_page;
 
       <?php
       $search = $_GET['search'];
-      if ($search != ''){
+      if ($search = ''){
       $sql = "SELECT *FROM jobpost LIMIT " . $page_first_result . ',' . $results_per_page;
     }
     else{
