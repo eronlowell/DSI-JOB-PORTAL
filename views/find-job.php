@@ -83,13 +83,13 @@ $page_first_result = ($page - 1) * $results_per_page;
       </div>
       <div class="col-6 my-auto">
         <div class="input-group pr-auto">
-          <form action="" method="GET">
-          <div class="form-outline">
-            <input type="search" name="search" id="search" class="form-control" placeholder="Search here.." />
-          </div>
-          <button type="button" class="btn btn-danger">
-            <i class="bi bi-search"></i>
-          </button>
+          <form action="find-job.php" method="GET">
+            <div class="form-outline">
+              <input type="search" name="search" id="search" class="form-control" placeholder="Search here.." />
+            </div>
+            <button type="submit" class="btn btn-danger">
+              <i class="bi bi-search"></i>
+            </button>
           </form>
         </div>
       </div>
@@ -99,23 +99,22 @@ $page_first_result = ($page - 1) * $results_per_page;
     <div class="row">
 
       <?php
-      
-        if (isset($_GET['search']) && !empty($_GET['search'])) {
-          // Perform the search using $_GET['q']
-          $search = $_GET['search'];
-          // ...
-        } else {
-          // Display an error message or provide a default value
-          $search = 'default value';
-          // ...
-        }
 
-      if ($search = 'default value'){
-      $sql = "SELECT *FROM jobpost LIMIT " . $page_first_result . ',' . $results_per_page;
-    }
-    else{
-      $sql = "SELECT *FROM jobpost WHERE job_title LIKE '%.$search.%' LIMIT " . $page_first_result . ',' . $results_per_page;
-    }
+      if (isset($_GET['search']) && !empty($_GET['search'])) {
+        // Perform the search using $_GET['q']
+        $search = $_GET['search'];
+        // ...
+      } else {
+        // Display an error message or provide a default value
+        $search = 'default value';
+        // ...
+      }
+
+      if ($search == 'default value') {
+        $sql = "SELECT *FROM jobpost LIMIT " . $page_first_result . ',' . $results_per_page;
+      } else {
+        $sql = "SELECT *FROM jobpost WHERE job_title LIKE '%$search%' LIMIT " . $page_first_result . ',' . $results_per_page;
+      }
       $all_jobs = mysqli_query($conn, $sql);
       // $row = mysqli_fetch_assoc($all_jobs);
       while ($row = mysqli_fetch_assoc($all_jobs)) {
