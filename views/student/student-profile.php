@@ -13,7 +13,7 @@
 
 <?php
 
-include('student-login.php');
+include('student-info.php');
 
 ?>
 
