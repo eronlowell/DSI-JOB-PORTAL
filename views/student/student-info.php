@@ -146,11 +146,13 @@ class student
   }
 };
 
-include 'config.php';
+include 'login-student.php';
 
-$query = "SELECT * FROM student 
-      WHERE studentID = 1";
-
+$query = $conn ->prepare("SELECT * FROM student 
+      WHERE studentID = ?");
+$query->bind_param("s", $studentId);
+$query->execute();
+echo $studentId;
 //sort by year
 $eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1 ORDER BY eduYear DESC";
 
@@ -168,7 +170,7 @@ $jobrow = $jobresult->fetch_assoc();
 //Student Info
 $studentName = $row["studentName"];
 $studentAge = $row["studentAge"];
-$studentId = $row["studentID"];
+
 $email = $row["email"];
 $address = $row["Address"];
 $contactNo = $row["contactNo"];
@@ -185,6 +187,20 @@ $jobYear = $jobrow["jobYear"];
 
 $newStudent = new student($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio);
 
+$input_eduSchool = $_POST['eduSchool'];
+$input_eduDegree = $_POST['eduDegree'];
+$input_eduYear = $_POST['eduYear'];
+
+$input_jobTitle = $_POST['jobTitle'];
+$input_companyName = $_POST['companyName'];
+$input_jobYear = $_POST['jobYear'];
+
+$addEdu = "INSERT INTO eduBackground (Degree, schoolName, eduYear, studentID) 
+            VALUES ('$input_eduDegree', '$input_eduSchool', '$input_eduYear ','$studentId', )";
+
+$addJob = "INSERT INTO jobExp (jobTitle, companyName, jobYear, studentID) 
+VALUES ('$input_jobTitle', '$input_companyName', '$input_jobYear ','$studentId', )";
+
 foreach ($eduresult as $edurow) {
   $eduSchool = $edurow["schoolName"];
   $eduYear = $edurow["eduYear"];
@@ -200,6 +216,8 @@ foreach ($jobresult as $jobrow) {
 
   $newStudent->addExp($jobTitle, $jobCompany, $jobYear);
 }
+
+
 
 if (!$result) {
   die("Invalid query: " . $conn->error);

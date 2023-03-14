@@ -200,18 +200,18 @@ include('student-login.php');
                           </div>
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <form action="">
+                              <form action="student-info.php" method="POST">
                                 <label for="">School:</label>
-                                <input type="text" class="form-control"><br>
+                                <input type="text" class="form-control" name="eduSchool" id="eduSchool"><br>
                                 <label for="">Degree:</label>
-                                <input type="text" class="form-control"><br>
+                                <input type="text" class="form-control" name="eduDegree" id="eduDegree"><br>
                                 <label for="">Year:</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="eduYear" id="eduYear">
                             </div>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                           </div>
                           </form>
                         </div>

@@ -2,8 +2,8 @@ CREATE TABLE `Student` (
   `studentID` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255),
   `Password` varchar(255),
-  `studentName` varchar(255),
-  `studentAge` int,
+  `studentFirstName` varchar(255),
+  `studentLastName` varchar(255),
   `Address` varchar(255),
   `contactNo` varchar(255),
   `dateofBirth` date,
@@ -15,19 +15,19 @@ CREATE TABLE `Student` (
 ALTER TABLE `Student` MODIFY `studentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2160;
 
 CREATE TABLE `jobExp` (
-  `jobYear` date,
-  `companyName` varchar(50),
-  `studentID` int,
   `jobTitle` int,
-  PRIMARY KEY (`Job Title`),
+  `companyName` varchar(50),
+  `jobYear` date,
+  `studentID` int,
+  PRIMARY KEY (`jobTitle`),
   FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
 );
 
 CREATE TABLE `eduBackground` (
-  `eduYear` date,
-  `schoolName` varchar(50),
-  `studentID` int,
   `Degree` varchar(255),
+  `schoolName` varchar(50),
+  `eduYear` date,
+  `studentID` int,
   PRIMARY KEY (`Degree`),
   FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
 );
