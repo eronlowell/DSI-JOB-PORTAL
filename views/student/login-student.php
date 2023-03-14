@@ -3,10 +3,7 @@
     $password = $_POST['password'];
     
     include 'config.php';
-    if($conn->connect_error){
-        die("Failed to connect : ".$conn->connect_error);
-
-    }else{
+   
         $stmt = $conn->prepare("SELECT * FROM student WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -23,5 +20,5 @@
         }else{
             echo "<script> alert('Invalid Email or Password');window.location='login-student.html' </script>";
         }
-    }
+    
 ?>
