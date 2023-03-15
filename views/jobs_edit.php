@@ -1,3 +1,9 @@
+<?php
+ $conn = new mysqli('localhost', 'root', '', 'jobpost_db');
+ if($conn->connect_error){
+     die('Connection Failed : '.$conn->connect_error);
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,32 +68,36 @@
   </nav>
 
   <div id="PostJobCon" class="container-sm mt-5 py-5 p-5 bg-light login-form">
-    <form action= jobpost_connect.php method= "post">
+    <form method= "post" action= "jobs_edit_connect.php">
+        <?php
+            
+            $id = $_GET['id'];
+            $sql = mysqli_query($conn, "SELECT * FROM jobpost WHERE id = '$id'");
+            while($row=mysqli_fetch_array($sql)){
+
+        ?>
+
       <div class="form-group">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
       </div>
-      <br>
-
-
-
-
-    
-
+      
       <div class="form-group">
         <label for="company_logo">Company Logo</label> <br>
-        <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo">
+        <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo" value = "<?php echo $row['company_logo']; ?>">
       </div>
       <br>
 
       <div class="form-group">
         <label for="job_title">Job Title</label>
-        <input type="text" class="form-control" name= "job_title" id="job_title" placeholder="Enter Job Title">
+        <input type="text" class="form-control" name= "job_title" id="job_title" placeholder="Enter Job Title"
+        value = "<?php echo $row['job_title']; ?>">
       </div>
       <br>
 
       <div class="form-group">
         <label for="skills">Skills</label>
-        <input type="text" name= "skills" class="form-control" placeholder="Enter Skills">
+        <input type="text" name= "skills" class="form-control" placeholder="Enter Skills"
+        value = "<?php echo $row['skills']; ?>">
       </div>
       <br>
 
@@ -103,19 +113,20 @@
       <div class="form-group">
         <label for="exampleInputEmail1salary">Salary</label>
         <input type="tel" name= "salary" class="form-control" 
-          placeholder="Enter Salary">
+        value = "<?php echo $row['job_type']; ?>">
       </div>
       <br>
 
       <div class="form-group">
         <label for="positions">Positions Available</label>
         <input type="positions" name= "positions"  class="form-control" 
-          placeholder="Enter Positions Available">
+        value = "<?php echo $row['positions']; ?>">
       </div>
       <br>
-      
+      <?php } ?>
+
       <br>
-      <button type="post" class="btn btn-primary">Post</button>
+      <button type="post" name ="update" class="btn btn-primary">Update</button>
     </form>
   </div>
 
@@ -130,5 +141,22 @@
     </div>
   </div>
 </body>
+
+<script>
+  $('.update-btn').on('click', function() {
+  // get the data from the button's data attributes
+  var id = $(this).data('id');
+  var name = $(this).data('name');
+  var email = $(this).data('email');
+
+  // set the values of the input fields in the modal
+  $('#id').val(id);
+  $('#name').val(name);
+  $('#email').val(email);
+
+  // show the modal
+  $('#update-modal').modal('show');
+});
+</script>
 
 </html>

@@ -87,12 +87,14 @@
   <table id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
+            <th> ID </th>          
             <th> Company Logo </th>          
             <th>Job Title</th>
             <th> Skills </th>
             <th>Job Type</th>
             <th> Salary</th>
             <th> Positions </th>
+            <th>  </th>
         </tr>
     </thead>
     <tbody>
@@ -103,12 +105,25 @@
 
                 if ($result ->num_rows > 0){
                     while($row = $result -> fetch_assoc()){
-                        echo "<tr><td>" . $row["company_logo"] . "</td><td>" .
+                        echo "<tr><td>" . $row["id"] . "</td><td>" .
+                        $row["company_logo"] . "</td><td>" .
                         $row["job_title"] . "</td><td>" .
                         $row["skills"] . "</td><td>" .
                         $row["job_type"] . "</td><td>" . 
                         $row["salary"] . "</td><td>" . 
                         $row["positions"]; 
+
+                        echo "<td>";
+                        echo "<div class='btn-group'>";
+                        echo "<a class='btn btn-success' href='./jobs_edit.php?id= " .$row['id'] ."'>Edit </a>";
+                        echo "<a class='btn btn-danger' href='./jobs_delete.php?id= " .$row['id'] ."'>Delete </a>";
+                        echo "</div>";
+                        echo "</td>";
+
+                        echo "</tr>";
+
+
+
                     }
                 }
                 else{

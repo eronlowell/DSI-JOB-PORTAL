@@ -1,27 +1,54 @@
 <?php
-    $businessEmail = $_POST['businessEmail'];
-    $pass = $_POST['pass'];
+session_start();
 
-    $con = new mysqli("localhost", "root", "", "jobpost_db");
-    if($con->connect_error){
-        die("Failed to connect : ".$con->connect_error);
+    include 'utility/connection.php';
+    include 'utility/functions.php';
 
-    }else{
-        $stmt = $con->prepare("SELECT * FROM employer WHERE businessEmail = ?");
-        $stmt->bind_param("s", $businessEmail);
-        $stmt->execute();
-        $stmt_result = $stmt->get_result();
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        //Something was posted
+        $businessEmail = $_POST['businessEmail'];
+        $pass = $_POST['pass'];
 
-        if($stmt_result->num_rows > 0){
-            $data = $stmt_result->fetch_assoc();
+        if(!empty($businessEmail) && !empty($pass) && !is_numeric($businessEmail))
+        {
+            //read from database
+            $query = "select * from employer where businessEmail = '$businessEmail' limit 1";
+            $result = mysqli_query($conn, $query);
+            
+            if($result){
+              if($result && mysqli_num_rows($result) > 0)
+              {
+                  $user_data = mysqli_fetch_assoc($result);
 
-            if($data['pass'] === $pass){
-                echo '<script> window.location.href="company-profile.html" </script>';
-            }else{
-                echo "<script> alert('Invalid Email or Password');window.location='login-employer.html' </script>";
+                  if($user_data['pass'] === $pass)
+                  {
+                    $_SESSION['id'] = $user_data['id'];
+                    header("Location: student/index.html");
+                    die;
+                  }else
+                  {
+                    echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>
+                    <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>
+                    <div>
+                      Invalid password
+                    </div>
+                    </div>";
+                  }
+              }
             }
-        }else{
-            echo "<script> alert('Invalid Email or Password');window.location='login-employer.html' </script>";
+
+        }else
+        {
+          echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>
+          <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>
+          <div>
+            Invalid Username
+          </div>
+          </div>";
         }
+
     }
+
+
 ?>
