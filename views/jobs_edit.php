@@ -113,7 +113,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1salary">Salary</label>
         <input type="tel" name= "salary" class="form-control" 
-        value = "<?php echo $row['job_type']; ?>">
+        value = "<?php echo $row['salary']; ?>">
       </div>
       <br>
 
