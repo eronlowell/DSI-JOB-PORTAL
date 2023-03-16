@@ -2,7 +2,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    include 'config.php';
+    include '../config.php';
    
         $stmt = $conn->prepare("SELECT * FROM student WHERE email = ?");
         $stmt->bind_param("s", $email);

@@ -12,6 +12,16 @@ CREATE TABLE `Student` (
   PRIMARY KEY (`studentID`)
 );
 
+CREATE TABLE studentCV (
+   `studentID` int,
+    `cvName` VARCHAR(255) NOT NULL,
+    `cvType` VARCHAR(50) NOT NULL,
+    `cvSize` INT(11) NOT NULL,
+    `cvData` LONGBLOB NOT NULL,
+    PRIMARY KEY (`cvName`),
+    FOREIGN KEY (`studentID`) REFERENCES `Student`(`studentID`)
+);
+
 ALTER TABLE `Student` MODIFY `studentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2160;
 
 CREATE TABLE `jobExp` (
