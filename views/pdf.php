@@ -9,10 +9,11 @@
       {       
       $output .= '<tr>  
                           <td>'.$row["id"].'</td>   
-                          <td>'.$row["job_title"].'</td>  
+                          <td>'.$row["job_title"].'</td> 
+                          <td>'.$row["skills"].'</td> 
+                          <td>'.$row["job_category"].'</td>
                           <td>'.$row["job_type"].'</td> 
                           <td>'.$row["salary"].'</td> 
-                          <td>'.$row["positions"].'</td>  
                      </tr>  
                           ';  
       }  
@@ -40,11 +41,12 @@
       <h4 align="center">Job Listing Database</h4><br /> 
       <table border="1" cellspacing="0" cellpadding="3">  
            <tr>  
-                <th width="10%">Id</th>    
-                <th width="20%">Job Title</th>  
-                <th width="20%">Job Type</th>
-                <th width="25%">Salary</th>  
-                <th width="25%">Positions</th>    
+                <th align= "center" width="5%"><b>Id</b></th>    
+                <th align= "center" width="20%"><b>Job Title</b></th>
+                <th align= "center" width="20%"><b>Skills</b></th>  
+                <th align= "center" width="20%"><b>Job Category</b></th>  
+                <th align= "center" width="15%"><b>Job Type</b></th>
+                <th align= "center" width="20%"><b>Salary</b></th>   
            </tr>  
       ';  
       $content .= fetch_data();  

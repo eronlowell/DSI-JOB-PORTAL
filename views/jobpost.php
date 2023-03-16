@@ -69,10 +69,6 @@
       <br>
 
 
-
-
-    
-
       <div class="form-group">
         <label for="company_logo">Company Logo</label> <br>
         <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo">
@@ -85,9 +81,44 @@
       </div>
       <br>
 
+      <div>
+        <label for="job_summary">Job Summary</label>
+        <textarea id="job_summary" class="form-control" name="job_summary" placeholder="Write Job Summary" required rows="8" cols="50"></textarea>
+      </div> <br>
+
+      <div>
+        <label for="key_responsibility">Key Responsibilities</label>
+        <textarea id="key_responsibility" class="form-control" name="key_responsibility" placeholder="Write Key Responsibilities" required rows="8" cols="50"></textarea>
+      </div> <br>
+
+      <div>
+        <label for="job_reqs">Job Requirements</label>
+        <textarea id="job_reqs" class="form-control" name="job_reqs" placeholder="Write Job Requirements" required rows="8" cols="50"></textarea>
+      </div> <br>
+
       <div class="form-group">
         <label for="skills">Skills</label>
         <input type="text" name= "skills" class="form-control" placeholder="Enter Skills">
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="job_category">Job Category</label> <br> <br>
+        <select id="job_category" name="job_category">
+            <option value="none"> Choose Job Category  </option>
+            <option value="business"> Business and Financial Services  </option>
+            <option value="construction"> Construction  </option>
+            <option value="education"> Education  </option>
+            <option value="restaurant"> Food & Beverage/Catering/Restaurant </option>
+            <option value="health"> Health, Pharmaceuticals, and Biotech </option>
+            <option value="hospitality"> Hospitality </option>
+            <option value="it"> Information Technology </option>
+            <option value="law"> Law Firm </option>
+            <option value="estate"> Real Estate </option>
+            <option value="transpo"> Transportation/Logistics  </option>
+            <option value="distribution"> Wholesale/Retail and Distribution  </option>
+            
+        </select>
       </div>
       <br>
 
@@ -104,13 +135,6 @@
         <label for="exampleInputEmail1salary">Salary</label>
         <input type="tel" name= "salary" class="form-control" 
           placeholder="Enter Salary">
-      </div>
-      <br>
-
-      <div class="form-group">
-        <label for="positions">Positions Available</label>
-        <input type="positions" name= "positions"  class="form-control" 
-          placeholder="Enter Positions Available">
       </div>
       <br>
       
