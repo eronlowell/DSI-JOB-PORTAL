@@ -1,3 +1,9 @@
+<?php
+ $conn = new mysqli('localhost', 'root', '', 'jobpost_db');
+ if($conn->connect_error){
+     die('Connection Failed : '.$conn->connect_error);
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,43 +68,59 @@
   </nav>
 
   <div id="PostJobCon" class="container-sm mt-5 py-5 p-5 bg-light login-form">
-    <form action= jobpost_connect.php method= "post">
+    <form method= "post" action= "jobs_edit_connect.php">
+        <?php
+            
+            $id = $_GET['id'];
+            $sql = mysqli_query($conn, "SELECT * FROM jobpost WHERE id = '$id'");
+            while($row=mysqli_fetch_array($sql)){
+
+        ?>
+
       <div class="form-group">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
       </div>
-      <br>
-
 
       <div class="form-group">
+        <label for="job_status">Job Status</label> <br> 
+        <select id="job_status" name="job_status" value= "<?php echo $row['job_status']; ?>">
+            <option value="active"> Active  </option>
+            <option value="inactive"> Inactive  </option>        
+        </select>
+      </div> <br>
+      
+      <div class="form-group">
         <label for="company_logo">Company Logo</label> <br>
-        <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo">
+        <input type="file" class="file-upload-input" onchange="readURL(this)" accept="Image/*" name="company_logo" value = "<?php echo $row['company_logo']; ?>">
       </div>
       <br>
 
       <div class="form-group">
         <label for="job_title">Job Title</label>
-        <input type="text" class="form-control" name= "job_title" id="job_title" placeholder="Enter Job Title">
+        <input type="text" class="form-control" name= "job_title" id="job_title" placeholder="Enter Job Title"
+        value = "<?php echo $row['job_title']; ?>">
       </div>
       <br>
 
       <div>
         <label for="job_summary">Job Summary</label>
-        <textarea id="job_summary" class="form-control" name="job_summary" placeholder="Write Job Summary" required rows="8" cols="50"></textarea>
+        <textarea id="job_summary" class="form-control" name="job_summary" value= "<?php echo $row['job_summary']; ?>" rows="8" cols="50"></textarea>
       </div> <br>
 
       <div>
         <label for="key_responsibility">Key Responsibilities</label>
-        <textarea id="key_responsibility" class="form-control" name="key_responsibility" placeholder="Write Key Responsibilities" required rows="8" cols="50"></textarea>
+        <textarea id="key_responsibility" class="form-control" name="key_responsibility" value= "<?php echo $row['key_responsibility']; ?>" rows="8" cols="50"></textarea>
       </div> <br>
 
       <div>
         <label for="job_reqs">Job Requirements</label>
-        <textarea id="job_reqs" class="form-control" name="job_reqs" placeholder="Write Job Requirements" required rows="8" cols="50"></textarea>
+        <textarea id="job_reqs" class="form-control" name="job_reqs" value= "<?php echo $row['job_reqs']; ?>"  rows="8" cols="50"></textarea>
       </div> <br>
 
       <div class="form-group">
         <label for="skills">Skills</label>
-        <input type="text" name= "skills" class="form-control" placeholder="Enter Skills">
+        <input type="text" name= "skills" class="form-control" placeholder="Enter Skills"
+        value = "<?php echo $row['skills']; ?>">
       </div>
       <br>
 
@@ -117,7 +139,6 @@
             <option value="estate"> Real Estate </option>
             <option value="transpo"> Transportation/Logistics  </option>
             <option value="distribution"> Wholesale/Retail and Distribution  </option>
-            
         </select>
       </div>
       <br>
@@ -134,12 +155,14 @@
       <div class="form-group">
         <label for="exampleInputEmail1salary">Salary</label>
         <input type="tel" name= "salary" class="form-control" 
-          placeholder="Enter Salary">
+        value = "<?php echo $row['salary']; ?>">
       </div>
       <br>
-      
+
+      <?php } ?>
+
       <br>
-      <button type="post" class="btn btn-primary">Post</button>
+      <button type="post" name ="update" class="btn btn-primary">Update</button>
     </form>
   </div>
 

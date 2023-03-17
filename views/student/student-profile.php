@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,12 +11,19 @@
   <title>JOB PORTAL</title>
 </head>
 
+<?php
+
+include('student-info.php');
+
+?>
+
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="index.html">
-        <img src="../icon-3.png" alt="" width="60" height="40" class="d-inline-block align-text-top">
-        Job Portal
+        <img src="assets/jobportal_logo1.png" height="100px" width="275px"  class="d-inline-block align-text-top">
+        
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,45 +31,51 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
-
+          
           <li class="nav-item">
-            <a class="nav-link ms-5" href="find-job.html">Find A Job</a>
+            <a class="nav-link fs-3 fw-bold" href="index.html">Home</a>
           </li>
           <li class="nav-item mx-5">
-            <a class="nav-link " href="#">Company Profiles</a>
+            <a class="nav-link  fs-3 fw-bold " href="company-profiles.html">Company Profiles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Career Guides</a>
+            <a class="nav-link fs-3 fw-bold " href="find-job.php">Find A Job</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link " href="#">Sign Out</a>
-          </li>
+        <ul class="navbar-nav d-flex flex-row-reverse">
+          <div class="dropdown">
+            <a class="btn stud-btn2 dropdown-toggle text-center" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../no-profile.png" alt="" class="rounded-circle" height="40px">
+            </a>
+          
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Account Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
 
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col">
-        <p> Student Profile</p>
-      </div>
+  <div class="container">
+    <br> <br>
+  <div class="row">
       <div class="col d-flex flex-row-reverse">
         <a href="edit-profile.html" class="btn btn-primary">Edit Profile</a>
       </div>
     </div>
     <div class="row">
       <div class="col-4 ">
-        <div class="container-fluid mr-5 pb-4 shadow rounded">
+        <div class="container-fluid mt-5 mr-5 pb-4 shadow rounded">
           <div class="row">
             <div class="col-12 mx-auto text-center mt-3" style="height: 150px;">
               <img src="../no-profile.png" alt="img" class="rounded-circle" height="100%">
             </div>
             <div class="col-12 mt-3">
-              <p class="text-center fs-3">Name</p>
+              <p class="text-center fs-3"><?php echo $newStudent->studentName ?></p>
             </div>
             <div class="col-12 mt-0">
               <p class="text-center">Student</p>
@@ -74,16 +86,14 @@
             <div class="col-6 d-flex flex-row-reverse">
               <a href="">Edit</a>
             </div>
-            <div class="col-12 mt-0 d-flex justify-content-evenly">
-              <p class="fs-6 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="col-12 mt-0 d-flex justify-content-evenly text-sm-start">
+              <p class="fs-6 d-flex justify-content-evenly text-md-start"><?php echo $newStudent->studentBio ?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <p class="fs-5">Skills</p>
+              <!-- replace paragraph with list or add new list then put this for loop -->
+              <p class="fs-5"></p>
             </div>
             <div class="col-3 m-2">
               <p> </p>
@@ -101,7 +111,7 @@
               -->
         </div>
       </div>
-      <div class="col mt-3 ms-4">
+      <div class="col mt-5 ms-4">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 pt-3 shadow rounded">
@@ -114,22 +124,22 @@
                 <div class="row">
                   <div class="col-6">
                     <p>Age</p>
-                    <p>123</p>
+                    <p><?php echo $newStudent->studentAge ?></p>
                   </div>
 
                   <div class="col-6">
                     <p>Contact Number</p>
-                    <p>123</p>
+                    <p><?php echo $newStudent->contactNo ?></p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-6">
                     <p>Location</p>
-                    <p>123</p>
+                    <p><?php echo $newStudent->address ?></p>
                   </div>
                   <div class="col-6">
                     <p>Email Address</p>
-                    <p>123</p>
+                    <p><?php echo $newStudent->email ?></p>
                   </div>
                 </div>
               </div>
@@ -153,7 +163,26 @@
                   <div class="col">
                     <p>Degree</p>
                   </div>
+                  <p></p>
                 </div>
+
+
+                <?php for ($i = 0; $i < count($newStudent->education); $i++) {
+                  $education = $newStudent->getBackgrounds(); ?>
+                  <div class="row">
+                    <div class="col">
+                      <p><?php echo $education[$i]['year'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $education[$i]['institution'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $education[$i]['degree'] ?></p>
+                    </div>
+                    <p></p>
+                  </div>
+                <?php }
+                ?>
                 <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -162,8 +191,7 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="eduModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
+                    <div class="modal fade" id="eduModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -172,20 +200,20 @@
                           </div>
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <form action="">
-                              <label for="">School:</label>
-                              <input type="text" class="form-control"><br>
-                              <label for="">Degree:</label>
-                              <input type="text" class="form-control"><br>
-                              <label for="">Year:</label>
-                              <input type="text" class="form-control">
+                              <form action="student-info.php" method="POST">
+                                <label for="">School:</label>
+                                <input type="text" class="form-control" name="eduSchool" id="eduSchool" required><br>
+                                <label for="">Degree:</label>
+                                <input type="text" class="form-control" name="eduDegree" id="eduDegree" required><br>
+                                <label for="">Year:</label>
+                                <input type="text" class="form-control" name="eduYear" id="eduYear" required>
                             </div>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary" name = "addEducationalBackground">Save changes</button>
                           </div>
-                        </form>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -207,14 +235,33 @@
                     <p>Year</p>
                   </div>
                   <div class="col">
-                    <p>Company Nme</p>
+                    <p>Company Name</p>
                   </div>
                   <div class="col">
-                    <p>Job Title</p>
+                    <p>Job</p>
                   </div>
+                  <p></p>
                 </div>
 
-                
+                <?php for ($i = 0; $i < count($newStudent->jobExp); $i++) {
+                  $jobExp = $newStudent->getExp(); ?>
+                  <div class="row">
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['jobYear'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['companyName'] ?></p>
+                    </div>
+                    <div class="col">
+                      <p><?php echo $jobExp[$i]['jobTitle'] ?></p>
+                    </div>
+                    <p></p>
+                  </div>
+                <?php }
+                ?>
+
+
+
                 <div class="row">
                   <div class="col d-flex flex-row-reverse mb-3">
                     <!-- Button trigger modal -->
@@ -223,30 +270,30 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="companyModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
+                    <div class="modal fade" id="companyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Job Experiences</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
-                            <div class="file-upload-wrapper">
-                              <form action="">
-                              <label for="">Job Title:</label>
-                              <input type="text" class="form-control"><br>
-                              <label for="">Company Name:</label>
-                              <input type="text" class="form-control"><br>
-                              <label for="">Year:</label>
-                              <input type="text" class="form-control">
+                          <form method="post" action="student-profile.php">
+                            <div class="modal-body">
+                              <div class="file-upload-wrapper">
+
+                                <label for="">Job Title:</label>
+                                <input type="text" class="form-control" id="jobTitle" name="jobTitle"><br>
+                                <label for="">Company Name:</label>
+                                <input type="text" class="form-control" id="companyName" name="companyName"><br>
+                                <label for="">Year:</label>
+                                <input type="text" class="form-control" id="jobYear" name="jobYear">
+                              </div>
                             </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </form>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -276,8 +323,7 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
+                    <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -286,7 +332,7 @@
                           </div>
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <input type="file" id="input-file-now" class="file-upload" />
+                              <input type="file" id="input-file-now" class="file-upload" name="studentCV" />
                             </div>
                           </div>
                           <div class="modal-footer">
@@ -298,12 +344,20 @@
                     </div>
                   </div>
                 </div>
+
+                <!--
+                      <div class="col d-flex flex-row-reverse">
+                        <p>Download</p>
+                      </div>
+                      -->
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -357,10 +411,9 @@
     </div>
 
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-   
 </body>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </html>

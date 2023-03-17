@@ -14,6 +14,7 @@ class student
   public $studentBio;
   public $education;
   public $jobExp;
+  public $studentCV;
 
 
   public function __construct($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio)
@@ -31,6 +32,7 @@ class student
 
     $this->education = array();
     $this->jobExp = array();
+    $this->studentCV = array();
   }
 
   public function addBackground($degree, $schoolName, $schoolYear)
@@ -53,6 +55,17 @@ class student
     $this->jobExp[] = $background;
   }
 
+  public function addCV($cvName, $cvType, $cvSize, $cvData)
+  {
+    $background = array(
+      'cvName' => $cvName,
+      'cvType' => $cvType,
+      'cvSize' => $cvSize,
+      'cvData' => $cvData
+    );
+    $this->studentCV[] = $background;
+  }
+
   public function getExp()
   {
     return $this->jobExp;
@@ -60,6 +73,11 @@ class student
   public function getBackgrounds()
   {
     return $this->education;
+  }
+
+  public function getCV()
+  {
+    return $this->studentCV;
   }
 
   //setters and getters baka tanggalin din to
@@ -146,26 +164,19 @@ class student
   }
 };
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "jobpost_db";
+include 'login-student.php';
 
-//create sql connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-//check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$query = "SELECT * FROM student 
-      WHERE studentID = 1";
-
+$query = $conn ->prepare("SELECT * FROM student 
+      WHERE studentID = ?");
+$query->bind_param("s", $studentId);
+$query->execute();
+echo $studentId;
 //sort by year
-$eduQuery = "SELECT * FROM eduBackground WHERE studentID = 1 ORDER BY eduYear DESC";
+$eduQuery = "SELECT * FROM eduBackground WHERE studentID = '$studentId' ORDER BY eduYear DESC";
 
-$jobQuery = "SELECT * FROM jobExp WHERE studentID = 1 ORDER BY jobYear DESC";
+$jobQuery = "SELECT * FROM jobExp WHERE studentID = '$studentId' ORDER BY jobYear DESC";
+
+$studentCVquery = "SELECT * FROM studentCV WHERE studentID = '$studentId'";
 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
@@ -176,14 +187,19 @@ $edurow = $eduresult->fetch_all();
 $jobresult = $conn->query($jobQuery);
 $jobrow = $jobresult->fetch_assoc();
 
+$studentCVresult = $conn->query($studentCVquery);
+$studentCVrow = $studentCVresult->fetch_assoc();
+
 //Student Info
-$studentName = $row["studentName"];
+$studentFirstName = $row["studentFirstName"];
+$studentLastName = $row['studentLastName'];
+$studentName = $studentFirstName . ' ' . $studentLastName;
 $studentAge = $row["studentAge"];
-$studentId = $row["studentID"];
+
 $email = $row["email"];
 $address = $row["Address"];
 $contactNo = $row["contactNo"];
-$password = $row["Password"];
+$password = $row["password"];
 $dateOfBirth = 121231;
 $gender = $row["Gender"];
 $studentBio = $row["Bio"];
@@ -195,6 +211,62 @@ $jobYear = $jobrow["jobYear"];
 
 
 $newStudent = new student($studentId, $studentName, $studentAge, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio);
+
+
+//ADD EDUCATIONAL BACKGROUND
+
+if (isset($_POST['addEducationalBackground'])){
+  $input_eduSchool = $_POST['eduSchool'];
+  $input_eduDegree = $_POST['eduDegree'];
+  $input_eduYear = $_POST['eduYear'];
+
+  $addEdu = "INSERT INTO eduBackground (Degree, schoolName, eduYear, studentID) 
+              VALUES (:input_eduDegree, :input_eduSchool, :input_eduYear, :studentId)";
+  $addeduquery = $conn->prepare($addEdu);
+  $addeduquery -> bind_param(':input_eduDegree', $input_eduDegree);
+  $addeduquery -> bind_param(':input_eduSchoo', $input_eduSchool);
+  $addeduquery -> bind_param(':input_eduYear', $input_eduYear);
+  $addeduquery -> bind_param(':studentId', $studentId);
+
+  $addeduquery ->execute();
+}
+
+//ADD JOB EXPERIENCE
+$input_jobTitle = $_POST['jobTitle'];
+$input_companyName = $_POST['companyName'];
+$input_jobYear = $_POST['jobYear'];
+
+//ADD CV FILE
+$cv_name = $_FILES['studentCV']['name'];
+$cv_type = $_FILES['studentCV']['type'];
+$cv_size = $_FILES['studentCV']['size'];
+$cv_data = file_get_contents($_FILES['studentCV']['tmp_name']);
+
+$cvstorage = 'studentcvs/'. $cv_name;
+
+
+
+
+
+
+
+
+
+
+$addJob = "INSERT INTO jobExp (jobTitle, companyName, jobYear, studentID) 
+                VALUES ('$input_jobTitle', '$input_companyName', '$input_jobYear ','$studentId')";
+$addjobresult = $conn->query($addjob);
+
+
+
+
+$addCV = $conn->prepare("INSERT INTO studentCV (name, type, size, data) VALUES (?, ?, ?, ?)");
+$addCV->bind_param("ssib", $name, $type, $size, $data);
+$addCV->execute();
+$addCV->close();
+
+
+
 
 foreach ($eduresult as $edurow) {
   $eduSchool = $edurow["schoolName"];
@@ -211,6 +283,17 @@ foreach ($jobresult as $jobrow) {
 
   $newStudent->addExp($jobTitle, $jobCompany, $jobYear);
 }
+
+foreach ($studentCVresult as $studentCVrow){
+  $cvName = $studentCVrow['cvName'];
+  $cvType = $studentCVrow['cvType'];
+  $cvSize = $studentCVrow['cvSize'];
+  $cvData = $studentCVrow['cvData'];
+
+  $newStudent ->addCV($cvName, $cvType, $cvSize, $cvData);
+}
+
+
 
 if (!$result) {
   die("Invalid query: " . $conn->error);
