@@ -14,6 +14,7 @@ if (isset($_POST['addEducationalBackground'])){
     $addeduquery -> bind_param(':studentId', $studentId);
   
     $addeduquery ->execute();
+    $addeduquery ->close();
   }
   
   //ADD JOB EXPERIENCE
