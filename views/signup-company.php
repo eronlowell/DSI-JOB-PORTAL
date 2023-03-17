@@ -79,9 +79,9 @@
 			</div>
             <br>
             <div>
-				<label for="company_overview">Company Overview</label>
-				<textarea id="company_overview" class="form-control" name="company_overview" placeholder="Write Company Overview" required rows="8" cols="50"></textarea>
-			</div>
+              <label for="company_overview">Company Overview</label>
+              <textarea id="company_overview" class="form-control" name="company_overview" placeholder="Write Company Overview" required rows="8" cols="50"></textarea>
+            </div>
             <br>
 
             <div class="form-group">

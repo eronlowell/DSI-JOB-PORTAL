@@ -87,13 +87,14 @@
   <table id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
-            <th> ID </th>          
+            <th> ID </th> 
+            <th> Status </th>          
             <th> Company Logo </th>          
-            <th>Job Title</th>
+            <th> Job Title</th>
             <th> Skills </th>
-            <th>Job Type</th>
+            <th> Job Category </th>
+            <th> Job Type</th>
             <th> Salary</th>
-            <th> Positions </th>
             <th>  </th>
         </tr>
     </thead>
@@ -106,12 +107,13 @@
                 if ($result ->num_rows > 0){
                     while($row = $result -> fetch_assoc()){
                         echo "<tr><td>" . $row["id"] . "</td><td>" .
+                        $row["job_status"] . "</td><td>" .
                         $row["company_logo"] . "</td><td>" .
                         $row["job_title"] . "</td><td>" .
                         $row["skills"] . "</td><td>" .
+                        $row["job_category"] . "</td><td>" .
                         $row["job_type"] . "</td><td>" . 
-                        $row["salary"] . "</td><td>" . 
-                        $row["positions"]; 
+                        $row["salary"];
 
                         echo "<td>";
                         echo "<div class='btn-group'>";
