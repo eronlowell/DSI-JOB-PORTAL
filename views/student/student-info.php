@@ -242,7 +242,9 @@ $cv_type = $_FILES['studentCV']['type'];
 $cv_size = $_FILES['studentCV']['size'];
 $cv_data = file_get_contents($_FILES['studentCV']['tmp_name']);
 
-$cvstorage = 'studentcvs/'. $cv_name;
+$cvDestination = 'uploads/' . $cv_name;
+move_uploaded_file($cv_data, $cvDestination);
+
 
 
 
