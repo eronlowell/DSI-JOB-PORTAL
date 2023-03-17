@@ -167,8 +167,7 @@ class student
 // include 'login-student.php';
 include '../config.php';
 $studentId = "2161";
-$query = $conn->prepare("SELECT * FROM student 
-      WHERE studentID = ?");
+
 $query = "SELECT * FROM Student WHERE studentID = '$studentId'";
 echo $studentId;
 //sort by year
