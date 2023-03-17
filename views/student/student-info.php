@@ -228,44 +228,6 @@ if (isset($_POST['addEducationalBackground'])) {
   $addeduquery->execute();
 }
 
-//ADD JOB EXPERIENCE
-$input_jobTitle = $_POST['jobTitle'];
-$input_companyName = $_POST['companyName'];
-$input_jobYear = $_POST['jobYear'];
-
-//ADD CV FILE
-$cv_name = $_FILES['studentCV']['name'];
-$cv_type = $_FILES['studentCV']['type'];
-$cv_size = $_FILES['studentCV']['size'];
-$cv_data = file_get_contents($_FILES['studentCV']['tmp_name']);
-
-$cvDestination = 'uploads/' . $cv_name;
-move_uploaded_file($cv_data, $cvDestination);
-
-
-
-
-
-
-
-
-
-
-
-$addJob = "INSERT INTO jobExp (jobTitle, companyName, jobYear, studentID) 
-                VALUES ('$input_jobTitle', '$input_companyName', '$input_jobYear ','$studentId')";
-$addjobresult = $conn->query($addjob);
-
-
-
-
-$addCV = $conn->prepare("INSERT INTO studentCV (name, type, size, data) VALUES (?, ?, ?, ?)");
-$addCV->bind_param("ssib", $name, $type, $size, $data);
-$addCV->execute();
-$addCV->close();
-
-
-
 
 foreach ($eduresult as $edurow) {
   $eduSchool = $edurow["schoolName"];
