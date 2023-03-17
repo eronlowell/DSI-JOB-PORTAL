@@ -210,24 +210,6 @@ $jobYear = $jobrow["jobYear"];
 
 $newStudent = new student($studentId, $studentFirstName, $studentLastName, $email, $password, $address, $contactNo, $dateOfBirth, $gender, $studentBio, $profilePicture);
 
-//ADD EDUCATIONAL BACKGROUND
-
-if (isset($_POST['addEducationalBackground'])) {
-  $input_eduSchool = $_POST['eduSchool'];
-  $input_eduDegree = $_POST['eduDegree'];
-  $input_eduYear = $_POST['eduYear'];
-
-  $addEdu = "INSERT INTO eduBackground (Degree, schoolName, eduYear, studentID) 
-              VALUES (:input_eduDegree, :input_eduSchool, :input_eduYear, :studentId)";
-  $addeduquery = $conn->prepare($addEdu);
-  $addeduquery->bind_param(':input_eduDegree', $input_eduDegree);
-  $addeduquery->bind_param(':input_eduSchoo', $input_eduSchool);
-  $addeduquery->bind_param(':input_eduYear', $input_eduYear);
-  $addeduquery->bind_param(':studentId', $studentId);
-
-  $addeduquery->execute();
-}
-
 
 foreach ($eduresult as $edurow) {
   $eduSchool = $edurow["schoolName"];
