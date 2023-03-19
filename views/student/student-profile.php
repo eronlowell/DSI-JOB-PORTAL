@@ -195,7 +195,7 @@ include('student-info.php');
                           </div>
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <form action="student-info.php" method="POST">
+                              <form action="insertbackground.php" method="POST">
                                 <label for="">School:</label>
                                 <input type="text" class="form-control" name="eduSchool" id="eduSchool" required><br>
                                 <label for="">Degree:</label>
@@ -206,7 +206,7 @@ include('student-info.php');
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" name="addEducationalBackground">Save changes</button>
+                            <button type="submit" href="student-profile.php" class="btn btn-primary" name="addEducationalBackground">Save changes</button>
                           </div>
                           </form>
                         </div>

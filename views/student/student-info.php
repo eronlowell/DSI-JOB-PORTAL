@@ -200,7 +200,7 @@ $password = $row["Password"];
 $dateOfBirth = 121231;
 $gender = $row["Gender"];
 $studentBio = $row["Bio"];
-
+$profilePicture = "";
 //Job Experiences
 $jobTitle = $jobrow["jobTitle"];
 $jobCompany = $jobrow["companyName"];
