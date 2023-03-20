@@ -4,6 +4,7 @@ CREATE TABLE `Student` (
   `Password` varchar(255),
   `studentFirstName` varchar(255),
   `studentLastName` varchar(255),
+  `ProfilePicture` varchar(255),
   `Address` varchar(255),
   `contactNo` varchar(255),
   `dateofBirth` date,

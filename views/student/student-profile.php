@@ -19,19 +19,18 @@ include('student-info.php');
 
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="index.html">
-        <img src="assets/jobportal_logo1.png" height="100px" width="275px"  class="d-inline-block align-text-top">
-        
+        <img src="assets/jobportal_logo1.png" height="100px" width="275px" class="d-inline-block align-text-top">
+
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
-          
+
           <li class="nav-item">
             <a class="nav-link fs-3 fw-bold" href="index.html">Home</a>
           </li>
@@ -47,7 +46,7 @@ include('student-info.php');
             <a class="btn stud-btn2 dropdown-toggle text-center" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../no-profile.png" alt="" class="rounded-circle" height="40px">
             </a>
-          
+
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><a class="dropdown-item" href="#">Account Settings</a></li>
@@ -62,7 +61,7 @@ include('student-info.php');
 
   <div class="container">
     <br> <br>
-  <div class="row">
+    <div class="row">
       <div class="col d-flex flex-row-reverse">
         <a href="edit-profile.html" class="btn btn-primary">Edit Profile</a>
       </div>
@@ -75,7 +74,7 @@ include('student-info.php');
               <img src="../no-profile.png" alt="img" class="rounded-circle" height="100%">
             </div>
             <div class="col-12 mt-3">
-              <p class="text-center fs-3"><?php echo $newStudent->studentName ?></p>
+              <p class="text-center fs-3"><?php echo $newStudent->studentFirstName . " " . $newStudent->studentLastName ?></p>
             </div>
             <div class="col-12 mt-0">
               <p class="text-center">Student</p>
@@ -122,10 +121,6 @@ include('student-info.php');
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-6">
-                    <p>Age</p>
-                    <p><?php echo $newStudent->studentAge ?></p>
-                  </div>
 
                   <div class="col-6">
                     <p>Contact Number</p>
@@ -200,7 +195,7 @@ include('student-info.php');
                           </div>
                           <div class="modal-body">
                             <div class="file-upload-wrapper">
-                              <form action="student-info.php" method="POST">
+                              <form action="insertbackground.php" method="POST">
                                 <label for="">School:</label>
                                 <input type="text" class="form-control" name="eduSchool" id="eduSchool" required><br>
                                 <label for="">Degree:</label>
@@ -211,7 +206,7 @@ include('student-info.php');
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" name = "addEducationalBackground">Save changes</button>
+                            <button type="submit" href="student-profile.php" class="btn btn-primary" name="addEducationalBackground">Save changes</button>
                           </div>
                           </form>
                         </div>
@@ -312,7 +307,7 @@ include('student-info.php');
 
                 <div class="row">
                   <div class="col">
-                    <p></p>
+                    <embed src="" type="">
                   </div>
 
 
