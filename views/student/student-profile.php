@@ -11,11 +11,7 @@
   <title>JOB PORTAL</title>
 </head>
 
-<?php
 
-include('student-info.php');
-
-?>
 
 
 <body>
