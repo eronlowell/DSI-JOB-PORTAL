@@ -38,3 +38,8 @@ function random_num($length)
     }
     return $text;
 }
+
+function goBack() {
+    window.history.back();
+  }
+
