@@ -99,6 +99,8 @@ session_start();
           <a href="company-signup.php">
             <button type="submit" class="btn btn-primary">Sign Up</button>
           </a>
+            <a href="signup.php" class="btn btn-primary">Sign Up</a>
+          </form>
         </div>
       </div>
     </div>
