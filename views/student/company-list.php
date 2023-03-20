@@ -139,7 +139,7 @@ $page_first_result = ($page - 1) * $results_per_page;
                         <p class="card-text"><?php echo $row["contact_person"] ?></p>
                         <p class="card-text"><?php echo $row["cp_email"] .= $row["company_city"] ?></p>
                         <p class="card-text"><?php echo "tel no. : " . $row["tel_no"] . " / cel no. : " . $row["cel_no"] ?></p>
-                        <a href="#" class="btn btn-primary">See more</a>
+                        <a href="../company-profiles " class="btn btn-primary">See more</a>
                       </div>
                       <div class="col-6 position-relative">
                         <img class="col-6 position-absolute top-0 start-50" src="../student7.png" alt="sans" />

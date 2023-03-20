@@ -1,5 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+$conn = new mysqli('localhost', 'root', '', 'jobpost_db');
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo 
+$id = $_SESSION["jobID"]; // The ID of the paragraph you want to retrieve
+echo $id;
+$sql = "SELECT * FROM jobpost WHERE id = $id";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $jobTitle = $row['job_title'];
+    $jobType = $row['job_type'];
+    $jobSkills = $row['job_type'];
+    $salary =$row['salary'];
+    $position =$row['positions'];
+    $description =$row['salary'];
+
+  }
+?>
 
 <head>
   <meta charset="UTF-8">
@@ -44,21 +72,20 @@
   </nav>
   <!-- Page content -->
 
-
+  
   <div class="container-xl">
     <br>
     <h1>Job Description</h1>
     <hr>
     <div class="container-xl rounded  my-2 bg-light ">
       <div class=" container py-2">
+        <p class="mt-3"><strong> Job Title: </strong><?php echo $jobTitle; ?> </p>
+        <p class="mt-3"><strong> Position: </strong><?php echo $position; ?> </p>  
+        <p class="mt-3"><strong> Job Salary: </strong><?php echo $salary; ?> </p>   
+        <p class="mt-3"><strong> Skills: </strong><?php echo $jobSkills; ?> </p>    
+        <p class="mt-3"><strong> Job Summary </strong></p>
+        <p><?php echo $description; ?> </p>  
         
-        <p class="mt-3"> Job Title: </p>   
-        <p class="mt-3">
-          <?php echo $JobTitle; ?></p>
-        <p class="mt-3">Job Summary </p>   
-        <p class="mt-3">
-          <?php echo $JobSummary; ?>
-        </p>
         <div class="container-fluid">
           <form action="process-form.php" method="post">
             <input type="submit" class="btn btn-primary" value="Apply">
