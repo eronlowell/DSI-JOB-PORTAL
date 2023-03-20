@@ -12,8 +12,8 @@ if ($conn->connect_error) {
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-$id = 1; // The ID of the paragraph you want to retrieve
+echo 
+$id = $_SESSION["jobID"]; // The ID of the paragraph you want to retrieve
 echo $id;
 $sql = "SELECT * FROM jobpost WHERE id = $id";
 $result = $conn->query($sql);

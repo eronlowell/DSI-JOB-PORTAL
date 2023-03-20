@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-
+session_start();
 $results_per_page = 4;
 $conn = new mysqli("localhost", "root", "", "jobpost_db");
 $sql = "SELECT * FROM jobpost";
@@ -137,7 +137,7 @@ $page_first_result = ($page - 1) * $results_per_page;
               <p class="job_type"> <b> Job Type: </b> <?php echo $row["job_type"]; ?> </p>
               <p class="salary"> <b> Salary: </b> <?php echo $row["salary"]; ?> </p>
               <p class="positions"> <b> Positions Offered: </b> <?php echo $row["positions"]; ?> </p>
-              <a onclick="<?php setcookie("jobID", $row["id"]); ?>" href="Apply-Page.php" class="btn btn-primary">Apply Now</a>
+              <a onclick="<?php $_SESSION["jobID"] = $row["id"]; ?>" href="Apply-Page.php" class="btn btn-primary">Apply Now</a>
               <button type="button" class="btn btn-secondary" target="_blank" onclick="window.location.href='company-profiles.html';"> <i class="bi bi-eye-fill"> </i> </button>
             </div>
           </div>
