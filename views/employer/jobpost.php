@@ -14,15 +14,11 @@
 
 
 </head>
-<style>
-    .footer{
-        background-color: #eab676;
-    }
 
-</style>
 
 <body style="background-image: url('assets/postjob.jpg');">
 
+<<<<<<< Updated upstream:views/jobpost.php
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #eab676;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="#">Job Portal</a>
@@ -60,6 +56,9 @@
     </div>
   </nav>
 
+=======
+  <include src= "company-header.html"> </include>
+>>>>>>> Stashed changes:views/employer/jobpost.php
   <div id="PostJobCon" class="container-sm mt-5 py-5 p-5 bg-light login-form">
     <form action= jobpost_connect.php method= "post">
       <div class="form-group">
@@ -110,15 +109,7 @@
   </div>
 
   <br> <br>
-  <div class="footer_container">
-  <div class="footer" style="border: 1px solid #eab676">
-    <br>
-      <div class="col mt-auto ml-auto footer-cpw">
-        <p> <center>Job Portal Solutions © 2023 Grp 2 & 3</p>
-        <p>All rights reserved</p></center>
-      </div>
-    </div>
-  </div>
+  <include src= "company-footer.html"> </include>
 </body>
 
 </html>

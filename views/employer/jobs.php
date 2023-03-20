@@ -40,6 +40,7 @@
 
 <body style="background-color: rgb(226, 219, 219);">
 
+<<<<<<< Updated upstream:views/jobs.php
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #eab676;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="#">Job Portal</a>
@@ -77,6 +78,9 @@
       </div>
     </div>
   </nav>
+=======
+<include src= "company-header.html"> </include>
+>>>>>>> Stashed changes:views/employer/jobs.php
 
   <div class="jobs_table">
     <h1> Jobs </h1> <br>
@@ -132,13 +136,6 @@
 </script>
 
 
-<div class="footer_container">
-    <div class="footer" style="border: 1px solid white">
-      <br>
-        <div class="col mt-auto ml-auto footer-cpw">
-          <p> <center>Job Portal Solutions © 2023 Grp 2 & 3</p>
-          <p>All rights reserved</p></center>
-        </div>
-      </div>
-    </div>
+<include src= "company-footer.html"> </include>
   </body>
+  </html>
