@@ -43,12 +43,15 @@
     </div>
   </nav>
   <!-- Page content -->
+
+
   <div class="container-xl">
     <br>
     <h1>Job Description</h1>
     <hr>
     <div class="container-xl rounded  my-2 bg-light ">
       <div class=" container py-2">
+        
         <p class="mt-3"> Job Title: </p>   
         <p class="mt-3">
           <?php echo $JobTitle; ?></p>
@@ -59,7 +62,7 @@
         <div class="container-fluid">
           <form action="process-form.php" method="post">
             <input type="submit" class="btn btn-primary" value="Apply">
-            <button type="button" class="btn btn-danger" href="company-profiles.html">About Company</button>
+            <button type="button" class="btn btn-danger" href="../company-profiles.html">About Company</button>
           </form>
         </div>
       </div>
