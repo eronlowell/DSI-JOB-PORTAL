@@ -1,3 +1,5 @@
+<?php include "student-info.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +72,7 @@
               <img src="../no-profile.png" alt="img" class="rounded-circle" height="100%">
             </div>
             <div class="col-12 mt-3">
-              <p class="text-center fs-3"><?php echo $newStudent->studentFirstName . " " . $newStudent->studentLastName ?></p>
+              <p class="text-center fs-3"><?php echo $studentName ?></p>
             </div>
             <div class="col-12 mt-0">
               <p class="text-center">Student</p>
@@ -82,7 +84,7 @@
               <a href="">Edit</a>
             </div>
             <div class="col-12 mt-0 d-flex justify-content-evenly text-sm-start">
-              <p class="fs-6 d-flex justify-content-evenly text-md-start"><?php echo $newStudent->studentBio ?></p>
+              <p class="fs-6 d-flex justify-content-evenly text-md-start"><?php echo $studentBio ?></p>
             </div>
           </div>
           <div class="row">
@@ -120,17 +122,17 @@
 
                   <div class="col-6">
                     <p>Contact Number</p>
-                    <p><?php echo $newStudent->contactNo ?></p>
+                    <p><?php echo $contactNo ?></p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-6">
                     <p>Location</p>
-                    <p><?php echo $newStudent->address ?></p>
+                    <p><?php echo $address ?></p>
                   </div>
                   <div class="col-6">
                     <p>Email Address</p>
-                    <p><?php echo $newStudent->email ?></p>
+                    <p><?php echo $email ?></p>
                   </div>
                 </div>
               </div>
@@ -158,17 +160,18 @@
                 </div>
 
 
-                <?php for ($i = 0; $i < count($newStudent->education); $i++) {
-                  $education = $newStudent->getBackgrounds(); ?>
+                <?php for ($i = 0; $i < count($eduBackgrounds); $i++) {
+                  // $education = $newStudent->getBackgrounds(); 
+                ?>
                   <div class="row">
                     <div class="col">
-                      <p><?php echo $education[$i]['year'] ?></p>
+                      <p><?php echo $eduBackgrounds[$i]['schoolYear'] ?></p>
                     </div>
                     <div class="col">
-                      <p><?php echo $education[$i]['institution'] ?></p>
+                      <p><?php echo $eduBackgrounds[$i]['schoolName'] ?></p>
                     </div>
                     <div class="col">
-                      <p><?php echo $education[$i]['degree'] ?></p>
+                      <p><?php echo $eduBackgrounds[$i]['degree'] ?></p>
                     </div>
                     <p></p>
                   </div>
@@ -234,17 +237,18 @@
                   <p></p>
                 </div>
 
-                <?php for ($i = 0; $i < count($newStudent->jobExp); $i++) {
-                  $jobExp = $newStudent->getExp(); ?>
+                <?php for ($i = 0; $i < count($jobExps); $i++) {
+                  // $jobExp = $newStudent->getExp(); 
+                ?>
                   <div class="row">
                     <div class="col">
-                      <p><?php echo $jobExp[$i]['jobYear'] ?></p>
+                      <p><?php echo $jobExps[$i]['jobYear'] ?></p>
                     </div>
                     <div class="col">
-                      <p><?php echo $jobExp[$i]['companyName'] ?></p>
+                      <p><?php echo $jobExps[$i]['companyName'] ?></p>
                     </div>
                     <div class="col">
-                      <p><?php echo $jobExp[$i]['jobTitle'] ?></p>
+                      <p><?php echo $jobExps[$i]['jobTitle'] ?></p>
                     </div>
                     <p></p>
                   </div>
